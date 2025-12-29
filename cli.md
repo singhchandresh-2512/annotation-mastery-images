@@ -1,61 +1,61 @@
-# Command Line Interface
+# 命令行界面 (CLI)
 
-X-AnyLabeling provides a powerful command-line interface for label format conversion and system management.
+X-AnyLabeling 提供了强大的命令行界面，用于标签格式转换和系统管理任务。
 
 > [!NOTE]
-> Before using these commands, ensure all dependencies are installed. See the [Quick Start Guide](./get_started.md) for details.
+> 在使用本命令之前，你需要确保已安装对应的依赖，详情可参考[快速入门指南](./get_started.md)。
 
-## 0. Table of Contents
+## 0. 目录
 
-- [1. GUI Launch Options](#1-gui-launch-options)
-- [2. System Commands](#2-system-commands)
-    - [2.1 Display Help Information](#21-display-help-information)
-    - [2.2 Display System and Package Information](#22-display-system-and-package-information)
-    - [2.3 Display Application Version](#23-display-application-version)
-    - [2.4 Display Configuration File Path](#24-display-configuration-file-path)
-- [3. Label Format Conversion](#3-label-format-conversion)
-    - [3.1 List All Available Conversion Tasks](#31-list-all-available-conversion-tasks)
-    - [3.2 Show Detailed Help for a Specific Task](#32-show-detailed-help-for-a-specific-task)
-    - [3.3 Run a Conversion Task](#33-run-a-conversion-task)
-    - [3.4 Conversion Parameters](#34-conversion-parameters)
-- [4. FAQ](#4-faq)
+- [1. 图形界面启动选项](#1-图形界面启动选项)
+- [2. 系统命令](#2-系统命令)
+    - [2.1 显示帮助信息](#21-显示帮助信息)
+    - [2.2 显示系统和软件包信息](#22-显示系统和软件包信息)
+    - [2.3 显示应用版本信息](#23-显示应用版本信息)
+    - [2.4 显示配置文件路径](#24-显示配置文件路径)
+- [3. 标签格式转换命令](#3-标签格式转换命令)
+    - [3.1 列出所有可用的转换任务](#31-列出所有可用的转换任务)
+    - [3.2 显示特定任务的详细帮助](#32-显示特定任务的详细帮助)
+    - [3.3 运行特定的转换任务](#33-运行特定的转换任务)
+    - [3.4 转换参数说明](#34-转换参数说明)
+- [4. 常见问题](#4-常见问题)
 
-## 1. GUI Launch Options
+## 1. 图形界面启动选项
 
 ```bash
-# Standard launch
+# 常规启动
 xanylabeling
 
-# Open a specific image file
+# 打开指定的图像文件
 xanylabeling --filename /path/to/image.jpg
 
-# Open an image directory
+# 打开指定的图像文件夹
 xanylabeling --filename /path/to/folder
 
-# Set output directory
+# 设置输出目录
 xanylabeling --output /path/to/output
 
-# Use a custom configuration file
+# 使用自定义配置文件
 xanylabeling --config /path/to/config.yaml
 
-# Set logging level
+# 设置日志级别
 xanylabeling --logger-level debug
 
-# Disable automatic update check
+# 禁用自动更新检查
 xanylabeling --no-auto-update-check
 ```
 
-## 2. System Commands
+## 2. 系统命令
 
-### 2.1 Display Help Information
+### 2.1 显示帮助信息
 
-- Input
+- 输入
 
 ```bash
 xanylabeling --help
 ```
 
-- Output
+- 输出
 
 ```bash
 usage: xanylabeling [-h] [--reset-config] [--logger-level {debug,info,warning,fatal,error}] [--no-auto-update-check] [--qt-platform QT_PLATFORM] [--filename [FILENAME]] [--output OUTPUT]
@@ -100,15 +100,15 @@ options:
   --epsilon EPSILON     epsilon to find nearest vertex on canvas
 ```
 
-### 2.2 Display System and Package Information
+### 2.2 显示系统和软件包信息
 
-- Input
+- 输入
 
 ```bash
 xanylabeling checks
 ```
 
-- Output
+- 输出
 
 ```bash
 Application
@@ -138,45 +138,45 @@ Packages
 ────────────────────────────────────────────────────────────
 ```
 
-### 2.3 Display Application Version
+### 2.3 显示应用版本信息
 
-- Input
+- 输入
 
 ```bash
 xanylabeling version
 ```
 
-- Output
+- 输出
 
 ```bash
 3.3.0
 ```
 
-### 2.4 Display Configuration File Path
+### 2.4 显示配置文件路径
 
-- Input
+- 输入
 
 ```bash
 xanylabeling config
 ```
 
-- Output
+- 输出
 
 ```bash
 ~/.xanylabelingrc
 ```
 
-## 3. Label Format Conversion
+## 3. 标签格式转换命令
 
-### 3.1 List All Available Conversion Tasks
+### 3.1 列出所有可用的转换任务
 
-- Input
+- 输入
 
 ```bash
 xanylabeling convert
 ```
 
-- Output
+- 输出
 
 ```bash
 ================================================================================
@@ -218,15 +218,15 @@ Usage:
   xanylabeling convert --task <task> [options]  # Run conversion
 ```
 
-### 3.2 Show Detailed Help for a Specific Task
+### 3.2 显示特定任务的详细帮助
 
-- Input (using `yolo2xlabel` as an example)
+- 输入（以 `yolo2xlabel` 为例）
 
 ```bash
 xanylabeling convert --task yolo2xlabel
 ```
 
-- Output
+- 输出
 
 ```bash
 ================================================================================
@@ -270,56 +270,56 @@ Examples:
 ================================================================================
 ```
 
-### 3.3 Run a Conversion Task
+### 3.3 运行特定的转换任务
 
-- Input (using `yolo2xlabel:detect` as an example)
+- 输入（以 `yolo2xlabel:detect` 为例）
 
 ```bash
 xanylabeling convert --task yolo2xlabel --mode detect --images ./images --labels ./labels \
     --output ./output --classes classes.txt
 ```
 
-- Output
+- 输出
 
 ```bash
 Converting YOLO detect to XLABEL: 100%|█████████████████████████████████████| 128/128 [00:00<00:00, 2456.47it/s]
 ✓ Converted 128 files to XLABEL format: ./output
 ```
 
-### 3.4 Conversion Parameters
+### 3.4 转换参数说明
 
-| Parameter             | Description                                                          | Required |
-|-----------------------|----------------------------------------------------------------------|----------|
-| `--task`              | Conversion task name                                                 | Yes      |
-| `--images`            | Path to the image directory                                          | No       |
-| `--labels`            | Path to the label directory                                          | No       |
-| `--output`            | Path to the output directory                                         | Yes      |
-| `--classes`           | Path to the classes file                                             | No       |
-| `--pose-cfg`          | Path to the pose configuration file                                  | No       |
-| `--mode`              | Conversion mode (e.g., detect, segment, obb, pose)                   | No       |
-| `--mapping`           | Path to the mapping table file                                       | No       |
-| `--skip-empty-files`  | Skip creating empty output files (supported by xlabel2yolo and xlabel2voc only) | No |
+| 参数                  | 说明                                                      | 是否必需 |
+|-----------------------|-----------------------------------------------------------|----------|
+| `--task`              | 转换任务名称                                              | 是       |
+| `--images`            | 图像目录路径                                              | 否       |
+| `--labels`            | 标签目录路径                                              | 否       |
+| `--output`            | 输出目录路径                                              | 是       |
+| `--classes`           | 类别文件路径                                              | 否       |
+| `--pose-cfg`          | 姿态配置文件路径                                          | 否       |
+| `--mode`              | 转换模式（如：detect、segment、obb、pose）                | 否       |
+| `--mapping`           | 映射表文件路径                                            | 否       |
+| `--skip-empty-files`  | 跳过创建空输出文件（仅支持 xlabel2yolo 和 xlabel2voc）    | 否       |
 
-> For more details, refer to the [User Guide - Label Import/Export](./user_guide.md#4-label-importexport) section.
+> 更多详情，请参考[用户手册-标签导入导出](./user_guide.md#4-标签导入导出)章节。
 
-## 4. FAQ
+## 4. 常见问题
 
-### Q1: What is the XLABEL format?
+### Q1：什么是 XLABEL 格式？
 
-XLABEL is X-AnyLabeling's native JSON format. It stores all annotation information in a human-readable format, including shape data, labels, attributes, and metadata.
+XLABEL 是 X-AnyLabeling 的原生 JSON 格式。它以人类可读的格式存储所有标注信息，包括对象信息、标签信息、属性信息及元数据等。
 
-### Q2: Do I need to provide class names for all conversions?
+### Q2：是否需要为所有转换提供类别名称？
 
-Class names are required for:
-- YOLO conversions (detect, segment, obb modes)
-- COCO conversions (detect, segment modes)
-- MOT conversions
+类别名称对以下任务是必需的：
+- YOLO 转换（detect、segment、obb 模式）
+- COCO 转换（detect、segment 模式）
+- MOT 转换
 
-VOC format embeds class names directly in the XML files, so a separate classes file is not required.
+VOC 格式在 XML 文件中嵌入了类别名称，因此不需要单独的类别文件。
 
-### Q3: How do I create a classes.txt file?
+### Q3：如何创建 classes.txt 文件？
 
-Simply create a text file with one class name per line:
+只需创建一个文本文件，每行一个类别名称：
 
 ```
 person
@@ -329,39 +329,39 @@ dog
 cat
 ```
 
-The line number (0-indexed) corresponds to the class ID.
+行号（从 0 开始索引）对应类别 ID。
 
-### Q4: What's the difference between MOT and MOTS?
+### Q4：MOT 和 MOTS 有什么区别？
 
-- **MOT**: Multiple Object Tracking with bounding boxes
-- **MOTS**: Multiple Object Tracking with segmentation masks
+- **MOT**：使用边界框的多目标跟踪
+- **MOTS**：使用分割掩码的多目标跟踪
 
-### Q5: Can I convert directly between formats without using XLABEL?
+### Q5：可以直接在格式之间转换而不经过 XLABEL 吗？
 
-Not currently. All conversions use XLABEL as an intermediate format:
-1. Convert to XLABEL first
-2. Then convert from XLABEL to the target format
+暂不支持。目前，所有转换都通过 XLABEL 作为中间格式：
+1. 首先转换为 XLABEL
+2. 然后从 XLABEL 转换为目标格式
 
-### Q6: What if my images are in subdirectories?
+### Q6：如果图像在子目录中怎么办？
 
-The converter currently processes images in the specified directory only. For nested directory structures, you'll need to either run the conversion multiple times or flatten your directory structure.
+转换器当前仅处理指定目录中的图像。对于嵌套目录，您可能需要多次运行转换或展平目录结构。
 
-### Q7: How do I handle non-ASCII paths on Windows?
+### Q7：如何在 Windows 上处理非 ASCII 路径？
 
-The converter has built-in support for non-ASCII paths. Ensure your terminal encoding is set to UTF-8:
+转换器内置了对非 ASCII 路径的支持。确保您的终端编码设置为 UTF-8：
 
 ```bash
-chcp 65001  # For Windows CMD
+chcp 65001  # 在 Windows CMD 中
 ```
 
-### Q8: What does the `--skip-empty-files` option do?
+### Q8：`--skip-empty-files` 选项是什么？
 
-This option (supported by `xlabel2yolo` and `xlabel2voc`) prevents the creation of empty label files for images without annotations. This is useful when you need to distinguish between "unlabeled" and "labeled but empty" images.
+此选项（由 `xlabel2yolo` 和 `xlabel2voc` 支持）可防止为没有标注的图像创建空标签文件。当您想区分"未标注"和"已标注但为空"的图像时，这很有用。
 
-### Q9: Can I use relative paths?
+### Q9：可以使用相对路径吗？
 
-Yes, both relative and absolute paths are supported. Relative paths are resolved from your current working directory.
+是的，支持相对路径和绝对路径。相对路径从当前工作目录解析。
 
-### Q10: How do I convert a single file?
+### Q10：如何转换单个文件？
 
-Place your file in a directory and run the conversion on that directory. The converter processes all matching files in the specified directory.
+将单个文件放在目录中，然后对该目录运行转换。转换器会处理指定目录中的所有匹配文件。

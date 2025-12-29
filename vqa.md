@@ -1,102 +1,102 @@
-# Overview
+# 概述
 
-`X-AnyLabeling` Visual Question Answering (VQA) Tool is a professional system designed for multimodal image question-answering dataset annotation. The tool not only supports the creation of image-based question-answer pairs but also integrates intelligent assistance, offering a wide variety of input components and extensive configurability. With its flexibility to adapt to different annotation tasks, it provides high-quality training data for supervised fine-tuning, reinforcement learning post-training, and similar tasks.
+`X-AnyLabeling` 视觉问答工具是一款专为多模态图像问答数据集标注设计的专业系统。该工具不仅支持创建图像对应的问题-答案对，还集成了智能辅助功能，提供丰富的输入组件类型和高度的可配置性。通过灵活适应不同标注任务的需求，可为监督式微调，强化学习后训练等任务提供高质量的训练语料。
 
 <video src="https://github.com/user-attachments/assets/53adcff4-b962-41b7-a408-3afecd8d8c82" width="100%" controls>
 </video>
 
-# Launching the Tool
+# 启动
 
-To open the VQA tool, ensure that the main window’s image directory is loaded. Then, either click the VQA icon in the left toolbar of the main window or use the following keyboard shortcut:
+要打开视觉问答工具，请先确保主窗口图像目录已加载，随后点击主窗口左侧工具栏中的视觉问答图标或使用如下快捷键快速启动 VQA 对话窗口。
 
-* **Windows/Linux**: `Ctrl` + `2`
-* **macOS**: `⌘` + `2`
+- Windows/Linux: `Ctrl` + `2`
+- macOS: `⌘` + `2`
 
-On startup, the system automatically loads the default configuration from the following path. You may modify it as needed:
+每次启动时，系统会自动从下述路径加载默认配置，用户可按需修改：
 
 ```bash
 ~/xanylabeling_data/vqa/components.json
 ```
 
-# Tutorial
+# 教程
 
-The VQA tool adopts a dual-panel layout: the left panel displays image previews, while the right one provides annotation controls.
+视觉问答工具采用双面板设计，左侧为图像预览区域，右侧为标注控制区域。
 
 <img src="../../assets/resources/vqa/entire_panel.png" width="100%" />
 
-## Left Panel – Image Preview
+## 左侧面板 - 图像预览区
 
-* **Filename and Progress Indicator**: Shows the current image filename and its position within the dataset (e.g., `000000000154.jpg (33/128)`).
-* **Image Preview Area**: Displays the image centered on the panel with adaptive zoom.
-* **Panel Toggle**: Use the sidebar icon to expand or collapse the left panel.
+* **文件名与进度指示**：显示当前图像文件名及其在数据集中的位置（如：`000000000154.jpg (33/128)`）。
+* **图像预览区域**：居中显示图像，支持自适应缩放。
+* **面板打开/隐藏**：点击侧边栏图标可展开/收起左侧面板。
 
-## Right Panel – Annotation Controls
+## 右侧面板 - 标注控制区
 
-* **Toolbar Buttons**:
+* **功能组件区**：
 
-| Button        | Description                                  |
-| ------------- | -------------------------------------------- |
-| Export Labels | Export annotations as JSONL format           |
-| Clear All     | Remove all annotations for the current image |
-| Add Component | Add a new annotation component               |
-| Del Component | Delete an existing component                 |
+| 功能按钮 | 说明 |
+|----------|------|
+| Export Labels | 导出标注数据为 JSONL 格式 |
+| Clear All | 清除当前图像的所有标注项 |
+| Add Component | 新增标注组件 |
+| Del Component | 删除已配置组件 |
 
-* **Annotation Components**:
+* **标注组件区**：
 
-| Component     | Type         | Description                                                           |
-| ------------- | ------------ | --------------------------------------------------------------------- |
-| Text Input    | QLineEdit    | For open-ended QA, such as image descriptions or detailed answers     |
-| Radio Buttons | QRadioButton | For single-choice tasks, such as task type selection or dataset split |
-| Checkboxes    | QCheckBox    | For multi-choice tasks, such as image tagging or attribute labeling   |
-| Dropdown Menu | QComboBox    | For single-choice tasks with many options, supports custom lists      |
+| 组件名称 | 组件类型 | 说明 |
+|----------|------| ------|
+| 文本输入框 | QLineEdit | 用于开放式问答，如图像描述、详细回答等 |
+| 单选按钮组 | QRadioButton | 适用于单选题，如任务类型选择、数据集划分等，仅支持单选 |
+| 复选框组 | QCheckBox | 适用于多选题，如图像标签、属性标记等，支持多选 |
+| 下拉菜单 | QComboBox | 适用于选项较多的单选场景，支持自定义选项列表 |
 
 <div style="display: flex; justify-content: space-between;">
   <img src="../../assets/resources/vqa/add_compone.png" width="56%" />
   <img src="../../assets/resources/vqa/del_compone.png" width="43%" />
 </div>
 
-For text input components, the system integrates powerful AI assistance to improve annotation efficiency. To enable this feature, follow the configuration instructions in the [Chatbot](../zh_cn/chatbot.md) section.
+特别地，对于文本输入框组件，系统集成了强大的AI智能辅助功能，可以帮助用户更高效地完成标注工作。要启用此功能，请先参照 [Chatbot](../zh_cn/chatbot.md) 章节完成相关配置。
 
 <img src="../../assets/resources/vqa/chatbot.png" width="100%" />
 
-Once configured, you can open the AI assistant dialog by clicking the magic wand (🪄) icon in the title bar.
+完成配置后，你可以通过点击标题栏右侧的魔法棒（🪄）图标来打开AI智能对话框。
 
 <img src="../../assets/resources/vqa/assistance.png" width="100%" />
 
-The system supports both text-only and multimodal prompts with various reference tokens:
+系统支持纯文本和图文多模态智能提示功能，提供以下特殊引用符：
 
-**Basic References**
-- `@image`: References the current image for AI analysis
-- `@text`: References the current text input field content
+**基础引用**
+- `@image`：引用当前图像，AI 将理解并分析图像内容
+- `@text`：引用当前文本输入框中的已有内容
 
-**Cross-Widget References**
-- `@widget.component_name`: References other QLineEdit component values, e.g., `@widget.question` references the "question" component
+**跨组件引用**
+- `@widget.组件名称`：引用其他 QLineEdit 组件的值，如 `@widget.question` 引用名为 "question" 的组件内容
 
-**Label Data References**
-- `@label.shapes`: References all annotation shapes in the current image
-- `@label.imagePath`: References the image file path
-- `@label.imageHeight`: References the image height
-- `@label.imageWidth`: References the image width
-- `@label.flags`: References annotation flags
+**标注数据引用**
+- `@label.shapes`：引用当前图像的所有标注对象信息
+- `@label.imagePath`：引用图像文件路径
+- `@label.imageHeight`：引用图像高度
+- `@label.imageWidth`：引用图像宽度
+- `@label.flags`：引用标注标记
 
-**Usage Examples**
+**使用示例**
 ```
-Describe objects in the image: @image
-Analyze with existing annotations: @image Analyze based on shapes @label.shapes
-Reference other components: Generate answer based on question "@widget.question"
+描述图像中的对象：@image
+结合现有标注分析：@image 基于标注信息 @label.shapes 进行分析
+引用其他组件：根据问题 "@widget.question" 生成答案
 ```
 
-To further enhance efficiency and reusability, the tool includes a prompt template gallery. Predefined templates are available for common use cases, and users can freely add, edit, or delete custom templates. Templates help build high-quality prompts quickly, improving annotation speed and consistency.
+为了提高标注效率和提示词的复用性，我们还提供了强大的提示模板库功能。系统预置了一些常用的基础提示模板，同时用户也可以根据具体项目需求，灵活地添加、编辑和删除自定义提示词。这些模板可以帮助用户快速构建高质量的提示，提升标注效率。
 
 <img src="../../assets/resources/vqa/add_template.png" width="100%" />
 
-Hovering over a template displays the full content in a tooltip for quick preview. For custom templates, double-clicking a template field allows you to edit the title and content.
+鼠标悬停在提示文本上方时，系统会以悬浮提示的形式展示完整的提示内容，方便快速预览。对于用户自定义的提示词，你可以通过双击提示文本字段来快速编辑和修改提示的标题与具体内容。
 
 <img src="../../assets/resources/vqa/template_gallery.png" width="100%" />
 
-# Data Management
+# 数据
 
-X-AnyLabeling uses an autosave mechanism to ensure that no annotation work is lost. Annotations are automatically saved in JSON format in the same directory as the corresponding image. For VQA tasks, all annotation data is stored under the `vqaData` field. This field contains structured data collected through the configured components:
+X-AnyLabeling 采用自动保存机制，确保您的标注工作不会丢失。标注数据会以 JSON 格式自动保存在与图像文件相同的目录下。对于本任务，所有标注信息都被组织在标签文件的 `vqaData` 字段中。该字段包含了通过各类配置组件采集的所有标注数据，形成结构化的数据存储：
 
 ```json
 {
@@ -119,16 +119,16 @@ X-AnyLabeling uses an autosave mechanism to ensure that no annotation work is lo
 }
 ```
 
-After completing annotation tasks, click the `Export Labels` button to export the data. The export dialog provides flexible field selection, including:
+完成标注任务后，您可以点击 `Export Labels` 按钮导出标注数据。导出对话框提供了灵活的字段选择选项，主要包含以下两类：
 
-* **Basic Fields**: Image filename, width, and height
-* **Custom Component Fields**: All configured components and their corresponding data
+- **基础字段**：包含图像文件名称以及相应的宽高信息
+- **自定义组件字段**：包含所有已配置的自定义组件及其对应的标注数据
 
 <img src="../../assets/resources/vqa/export.png" width="100%" />
 
-Exported data is saved in `JSONL` format, with one record per line. Example output:
+导出数据默认采用 `JSONL` 格式，每行包含一条完整的标注记录。以下是导出文件的示例内容：
 
 ```jsonl
-{"image": "0000000000154.jpg", "width": 640, "height": 480, "question": "How many zebras are in the image?", "answer": 3, "split": "train"}
-{"image": "0000000000155.jpg", "width": 640, "height": 480, "question": "What is the cat doing?", "answer": "sleeping", "split": "val"}
+{"image": "0000000000154.jpg", "width": 640, "height": 480, "question": "图像中有几只斑马？", "answer": 3, "split": "train"}
+{"image": "0000000000155.jpg", "width": 640, "height": 480, "question": "猫在做什么？", "answer": "睡觉", "split": "val"}
 ```

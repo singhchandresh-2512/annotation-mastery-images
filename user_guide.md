@@ -1,132 +1,135 @@
-# User Manual
+# 用户手册
 
-This guide provides comprehensive instructions for using X-AnyLabeling, covering everything from basic file management and annotation tasks to advanced features and customization.
+本指南提供了使用 X-AnyLabeling 的全面指导，涵盖了从基本的文件管理、标注任务到高级功能和自定义的所有内容。
 
-## 0. Table of Contents
-   * [1. File Management](#1-file-management)
-      * [1.1 Importing Data](#11-importing-data)
-      * [1.2 Deleting Data](#12-deleting-data)
-      * [1.3 Switching Images](#13-switching-images)
-      * [1.4 Saving Label Data](#14-saving-label-data)
-      * [1.5 Embedding Image Data](#15-embedding-image-data)
-   * [2. Editing](#2-editing)
-      * [2.1 Creating Shapes](#21-creating-shapes)
-      * [2.2 Editing Shapes](#22-editing-shapes)
-      * [2.3 Editing Labels](#23-editing-labels)
-      * [2.4 Adding Image Captions](#24-adding-image-captions)
-   * [3. View Options](#3-view-options)
-      * [3.1 Canvas Controls](#31-canvas-controls)
-      * [3.2 Image Display](#32-image-display)
-      * [3.3 Shape Display](#33-shape-display)
-      * [3.4 Crosshair Customization](#34-crosshair-customization)
-      * [3.5 Navigator](#35-navigator)
-   * [4. Annotation Formats (Import/Export)](#4-annotation-formats-importexport)
-      * [4.1 YOLO Format](#41-yolo-format)
-      * [4.2 VOC Format](#42-voc-format)
-      * [4.3 COCO Format](#43-coco-format)
-      * [4.4 DOTA Format](#44-dota-format)
-      * [4.5 Mask Format](#45-mask-format)
-      * [4.6 MOT Format](#46-mot-format)
-      * [4.7 PPOCR Format](#47-ppocr-format)
-      * [4.8 ODVG Format](#48-odvg-format)
-      * [4.9 VLM-R1-OVD Format](#49-vlm-r1-ovd-format)
-      * [4.10 MMGD Format](#410-mmgd-format)
-   * [5. Toolbar Tools](#5-toolbar-tools)
-      * [5.1 Data Statistics (Overview)](#51-data-statistics-overview)
-      * [5.2 Save Cropped Images](#52-save-cropped-images)
-      * [5.3 Label Manager](#53-label-manager)
-      * [5.4 Shape Type Conversion](#54-shape-type-conversion)
-      * [5.5 Digit Shortcut Manager](#55-digit-shortcut-manager)
-      * [5.6 Group ID Manager](#56-group-id-manager)
-      * [5.7 Shape Manager](#57-shape-manager)
-   * [6. Help and Language](#6-help-and-language)
-      * [6.1 About X-AnyLabeling](#61-about-x-anylabeling)
-      * [6.2 Setting the Language](#62-setting-the-language)
-   * [7. Configuration](#7-configuration)
-      * [7.1 Keyboard Shortcuts](#71-keyboard-shortcuts)
-      * [7.2 Custom Label Colors](#72-custom-label-colors)
-      * [7.3 Predefined Labels](#73-predefined-labels)
-      * [7.4 Auto-Switch to Edit Mode](#74-auto-switch-to-edit-mode)
-      * [7.5 Hover Auto-Highlight](#75-hover-auto-highlight)
-      * [7.6 Shape Appearance](#76-shape-appearance)
-      * [7.7 Model Download Source](#77-model-download-source)
-   * [8. Supported Tasks](#8-supported-tasks)
-      * [8.1 Image Classification](#81-image-classification)
-      * [8.2 Object Detection](#82-object-detection)
-      * [8.3 Image Segmentation](#83-image-segmentation)
-      * [8.4 Pose Estimation](#84-pose-estimation)
-      * [8.5 Multi-Object Tracking](#85-multi-object-tracking)
-      * [8.6 Depth Estimation](#86-depth-estimation)
-      * [8.7 Optical Character Recognition (OCR)](#87-optical-character-recognition-ocr)
-      * [8.8 Interactive Video Object Segmentation (IVOS)](#88-interactive-video-object-segmentation-ivos)
-      * [8.9 Matting](#89-matting)
-      * [8.10 Vision-Language Tasks](#810-vision-language-tasks)
-      * [8.11 Zero-Shot Counting](#811-zero-shot-counting)
+## 0. 目录
+   * [1. 文件](#1-文件)
+      * [1.1 导入数据](#11-导入数据)
+      * [1.2 删除数据](#12-删除数据)
+      * [1.3 切换图片](#13-切换图片)
+      * [1.4 保存标签数据](#14-保存标签数据)
+      * [1.5 保存图像数据](#15-保存图像数据)
+   * [2. 对象](#2-对象)
+      * [2.1 创建对象](#21-创建对象)
+      * [2.2 编辑对象](#22-编辑对象)
+      * [2.3 编辑标签](#23-编辑标签)
+      * [2.4 编辑图片](#24-编辑图片)
+   * [3. 视图](#3-视图)
+      * [3.1 画布可视化](#31-画布可视化)
+      * [3.2 图片可视化](#32-图片可视化)
+      * [3.3 对象可视化](#33-对象可视化)
+      * [3.4 十字瞄准线](#34-十字瞄准线)
+      * [3.5 导航器](#35-导航器)
+   * [4. 标签导入导出](#4-标签导入导出)
+      * [4.1 YOLO标签](#41-yolo标签)
+      * [4.2 VOC标签](#42-voc标签)
+      * [4.3 COCO标签](#43-coco标签)
+      * [4.4 DOTA标签](#44-dota标签)
+      * [4.5 MASK标签](#45-mask标签)
+      * [4.6 MOT标签](#46-mot标签)
+      * [4.7 PPOCR标签](#47-ppocr标签)
+      * [4.8 ODVG标签](#48-odvg标签)
+      * [4.9 VLM-R1-OVD标签](#49-vlm-r1-ovd标签)
+      * [4.10 MMGD标签](#410-mmgd标签)
+   * [5. 工具栏](#5-工具栏)
+      * [5.1 数据统计](#51-数据统计)
+      * [5.2 保存子图](#52-保存子图)
+      * [5.3 标签管理器](#53-标签管理器)
+      * [5.4 标签类型转换](#54-标签类型转换)
+      * [5.5 数字快捷键管理器](#55-数字快捷键管理器)
+      * [5.6 群组编号管理器](#56-群组编号管理器)
+      * [5.7 对象管理器](#57-对象管理器)
+   * [6. 帮助及语言](#6-帮助及语言)
+      * [6.1 获取版本信息](#61-获取版本信息)
+      * [6.2 设置软件语言](#62-设置软件语言)
+   * [7. 用户配置](#7-用户配置)
+      * [7.1 快捷键设置](#71-快捷键设置)
+      * [7.2 修改自定义标签颜色](#72-修改自定义标签颜色)
+      * [7.3 加载预定义标签](#73-加载预定义标签)
+      * [7.4 自动切换编辑模式](#74-自动切换编辑模式)
+      * [7.5 悬浮自动高亮模式](#75-悬浮自动高亮模式)
+      * [7.6 对象属性自定义](#76-对象属性自定义)
+      * [7.7 模型下载源配置](#77-模型下载源配置)
+   * [8. 任务](#8-任务)
+      * [8.1 图像分类](#81-图像分类)
+      * [8.2 目标检测](#82-目标检测)
+      * [8.3 图像分割](#83-图像分割)
+      * [8.4 姿态估计](#84-姿态估计)
+      * [8.5 多目标跟踪](#85-多目标跟踪)
+      * [8.6 深度估计](#86-深度估计)
+      * [8.7 光学字符识别](#87-光学字符识别)
+      * [8.8 交互式视频目标分割](#88-交互式视频目标分割)
+      * [8.9 抠图](#89-抠图)
+      * [8.10 视觉-语言](#810-视觉-语言)
+      * [8.11 基于检测与分割的零样本计数](#811-基于检测与分割的零样本计数)
       * [8.12 Grounding](#812-grounding)
-   * [9. Custom Models](#9-custom-models)
-   * [10. Advanced Features](#10-advanced-features)
+   * [9. 模型](#9-模型)
+   * [10. 高级功能](#10-高级功能)
 
+## 1. 文件
 
-## 1. File Management
+本章节将详细介绍如何在 X-AnyLabeling 上进行数据的导入、删除、切换以及保存，确保标注流程高效且数据安全可控。
 
-This section explains how to import, manage, and save data in X-AnyLabeling. You can import images and videos using various methods, including menu options and keyboard shortcuts. It also covers deleting data, switching between images, and saving labels, helping you maintain an efficient workflow and manage your data securely.
+### 1.1 导入数据
 
-### 1.1 Importing Data
+在打开 GUI 界面后，用户可在上方菜单栏中的 `文件` 下拉框中选择对应的任务类型进行导入，也可直接通过快捷键进行操作。
 
-After opening the application, select the type of data you want to import from the `File` menu or use the keyboard shortcuts:
+X-AnyLabeling 目前提供三种数据导入方式：
 
-X-AnyLabeling supports importing data in the following ways:
+- **图片文件目录**（Ctrl+U）：支持多级目录嵌套的多个文件同时导入。
+- **单个图片文件**（Ctrl+I）：支持导入 `*.jpg`、`*.png`、`*.bmp`、`*.webp`、`*.tif` 等多种格式。
+- **单个视频文件**（Ctrl+O）：支持导入 `*.mp4`、`*.avi`、`*.mov`、`*.mkv`、`*.wmv`、`*.flv` 等视频格式。
 
-- **Image File Directory** (`Ctrl+U`): Import all image files within a selected directory, including those nested in subdirectories.
-- **Single Image File** (`Ctrl+I`): Import an individual image file (formats: `*.jpg`, `*.png`, `*.bmp`, `*.webp`, `*.tif`).
-- **Single Video File** (`Ctrl+O`): Import an individual video file (formats: `*.mp4`, `*.avi`, `*.mov`, `*.mkv`, `*.wmv`, `*.flv`). Video frames will be extracted for annotation.
+### 1.2 删除数据
 
-### 1.2 Deleting Data
+X-AnyLabeling 提供数据删除功能，具体操作如下：
 
-X-AnyLabeling offers the following options for deleting data:
+- **删除标签文件**（Ctrl+Delete）：删除当前标注文件结果，此操作不可撤回，请谨慎操作。
+- **删除图像文件**（Ctrl+Shift+Delete）：删除当前图片文件，删除后的文件会同步移至当前图片目录下的 `_delete_` 文件夹中。
 
-- **Delete Label File** (`Ctrl+Delete`): Deletes the annotation file (`.json`) associated with the currently displayed image. **Warning:** This action cannot be undone.
-- **Delete Image File** (`Ctrl+Shift+Delete`): Moves the currently displayed image file and its corresponding label file (if any) to a `_delete_` subfolder within the image directory.
+### 1.3 切换图片
 
-### 1.3 Switching Images
+在 X-AnyLabeling 中，用户可以通过快捷键 (A) 和 (D) 快速切换到上一张或下一张图片。
 
-Navigate between images in your dataset using these methods:
+除了常规的切换图片操作外，还支持以下几种方式：
 
-- **Next/Previous Image**: Use the `D` key (next) or `A` key (previous) to move sequentially through the image list.
-- **Jump to Annotated/Unannotated**:
-    - `Ctrl+Shift+D`: Jump to the next image that already has annotations.
-    - `Ctrl+Shift+A`: Jump to the previous image that already has annotations.
-    *(Note: The behavior of `Ctrl+Shift+D`/`Ctrl+Shift+A` can be configured to jump to the next/previous *unannotated* image instead. Modify the `switch_to_checked` field in the user configuration file.)*
-- **Jump to Specific Image**: Type the exact filename (including extension) into the file search bar at the bottom right and press `Enter`.
+| 快捷键 | switch_to_checked | 描述 |
+|--------|------|------|
+| Ctrl+Shift+A | true | 跳转到上一张已标注的图片 |
+| Ctrl+Shift+D | true | 跳转到下一张已标注的图片 |
+| Ctrl+Shift+A | false | 跳转到上一张未标注的图片 |
+| Ctrl+Shift+D | false | 跳转到下一张未标注的图片 |
 
-The checkboxes in the file list are not editable by default. To enable editing, set `file_list_checkbox_editable` to `true` in the configuration file.
+这里，`switch_to_checked` 字段定义了不同的切换模式，可在用户目录下的 `~/.xanylabelingrc` 文件中修改。
 
-### 1.4 Saving Label Data
+文件列表中的复选框默认不可编辑，如需启用编辑功能，可在配置文件中将 `file_list_checkbox_editable` 设置为 `true`。
 
-X-AnyLabeling enables auto-save by default. You can verify or toggle this setting via `File` > `Auto Save`.
+### 1.4 保存标签数据
 
-Label files are saved in `*.json` format in the same directory as the images by default. The structure is:
+X-AnyLabeling 默认开启自动保存功能，用户在初次启动界面时，可点击菜单栏中的 `文件` 下拉框查看 `自动保存` 选项是否被勾选。
+
+标签文件默认保存在当前图片目录下，文件格式为 `*.json`，模板如下：
 
 ```json
 {
-  "version": "${version}", // X-AnyLabeling version
-  "flags": {},             // Image-level flags (if any)
-  "shapes": [              // List of annotated shapes
+  "version": "${version}", // X-AnyLabeling 版本号
+  "flags": {},             // 图片级标志 (如果存在)
+  "shapes": [              // 标注的形状列表
     {
-      "label": "${label}",        // Category label
-      "score": null,            // Confidence score (e.g., from model), null if N/A
-      "points": [...],          // List of [x, y] coordinates defining the shape
-      "group_id": null,         // ID for grouping related shapes (e.g., pose keypoints)
-      "description": null,      // Optional text description for the shape
-      "difficult": false,       // Flag if the object is difficult to identify
+      "label": "${label}",        // 类别标签
+      "score": null,            // 置信度得分 (e.g., from model), 若无此信息则为 `null`
+      "points": [...],          // 形状的顶点坐标列表
+      "group_id": null,         // 用于关联同一组内的多个形状 (e.g., pose keypoints)
+      "description": null,      // 形状的文本描述
+      "difficult": false,       // 标识当前对象是否难以识别
       "shape_type": "${shape_type}", // e.g., "rectangle", "polygon"
-      "flags": null,            // Shape-level flags (if any)
-      "attributes": {}          // Dictionary of custom attributes
+      "flags": null,            // 形状级标志 (如果存在)
+      "attributes": {}          // 自定义属性字典
     }
-    // ... more shapes
+    // ... 更多对象
   ],
-  "description": null,      // Optional text description for the image
-  "chat_history": [         // Chat history (for chatbot)
+  "description": null,      // 图片的文本描述
+  "chat_history": [         // 聊天历史 (for chatbot)
     {
       "role": "user",
       "content": "Hi",
@@ -137,7 +140,7 @@ Label files are saved in `*.json` format in the same directory as the images by 
       "content": "Hi there! How can I help you today?",
       "image": null
     }
-    // ... more dialogs
+    // ... 更多对话
   ],
   "vqaData": {
     "question": "What animals are shown in the image?",
@@ -147,640 +150,706 @@ Label files are saved in `*.json` format in the same directory as the images by 
     "tags": [
       "natural"
     ],
-    // ... more items
+    // ... 更多选项
   },
-  "imagePath": "${filename}", // Relative path to the image file
-  "imageData": null,         // Base64 encoded image data (if enabled, see 1.5)
-  "imageHeight": -1,         // Image height in pixels
-  "imageWidth": -1           // Image width in pixels
+  "imagePath": "${filename}", // 图片的相对路径
+  "imageData": null,         // Base64 编码的图片数据 (如果启用, 请参考 1.5)
+  "imageHeight": -1,         // 图片高度
+  "imageWidth": -1           // 图片宽度
 }
 ```
 
-⚠️ **To save labels to a different location:** Select `File` > `Change Output Directory` and choose your preferred path. The relative `imagePath` in the JSON will be adjusted accordingly.
+> **提示**：如需更改标签保存路径，请在菜单栏中的 `文件` 下拉框中点击 `更改输出目录` 选项并设置相应的保存路径。
 
-### 1.5 Embedding Image Data
+### 1.5 保存图像数据
 
-To embed the image data (encoded in `base64` by default) directly into the `.json` label file, enable the `Save Image Data` option under the `File` menu. This increases the JSON file size but makes it self-contained.
+如果您希望在标注过程中保存当前图像数据（默认 `base64` 编码），可在菜单栏中的 `文件` 下拉框中勾选 `保存图像数据` 选项。
 
-## 2. Editing
 
-This section explains how to create, edit, and manage different types of annotation objects (shapes) and their associated labels in X-AnyLabeling.
+## 2. 编辑
 
-### 2.1 Creating Shapes
+本章节将指导您如何在 X-AnyLabeling 中创建、编辑和管理不同类型的标注对象及其标签信息，涵盖从基本操作到高级功能的全面指南。
 
-In X-AnyLabeling, each distinct annotated object is called a `shape`. Key properties stored for each shape include:
+### 2.1 创建对象
 
-| Field         | Type    | Description                                                      |
-|---------------|---------|------------------------------------------------------------------|
-| `label`       | String  | Category label of the object.                                    |
-| `score`       | Float   | Confidence score (often from AI model inference). `null` if not available. |
-| `points`      | Array   | List of `[x, y]` coordinates defining the shape vertices.        |
-| `group_id`    | Integer | ID to group multiple related shapes (e.g., keypoints for a pose). `null` if not grouped. |
-| `description` | String  | Optional text description for the shape.                         |
-| `difficult`   | Boolean | Flags the object as difficult to identify (`true` if difficult).   |
-| `shape_type`  | String  | Type of shape, e.g., `"rectangle"`, `"polygon"`.                 |
-| `flags`       | Dictionary | Dictionary for additional flags or attributes. `null` if none.      |
-| `attributes`  | Dictionary | Dictionary for custom object attributes. Empty `{}` if none.      |
-| `kie_linking` | List    | Information linking shapes (e.g., for Key Info Extraction). Empty `[]` if none. |
+在 X-AnyLabeling 中，我们将每个目标框称为一个单独的**对象**，其通常包含如下基本属性：
 
-For detailed field definitions, see [`shape.py`](../../anylabeling/views/labeling/shape.py).
+| 字段           | 类型   | 描述                                                         |
+|--------------|------|------------------------------------------------------------|
+| `label`      | 字符串  | 对象的类别标签。                                             |
+| `score`      | 浮点数  | 对象的置信度得分，通常在 AI 模型推理服务中使用，若无此信息则为 `null`。   |
+| `points`     | 数组   | 对象的顶点坐标列表，具体取决于 `shape_type`。                   |
+| `group_id`   | 整数   | 对象所属的组 ID，用于关联同一组内的多个对象，若无此信息则为 `null`。 |
+| `description`| 字符串  | 对象的描述信息，若无此信息则为 `null`。                           |
+| `difficult`  | 布尔值  | 标识当前对象是否难以识别，`true` 表示难以识别。                      |
+| `shape_type` | 字符串  | 对象的形状类型，例如 `"rectangle"`、`"polygon"` 等。                |
+| `flags`      | 字典   | 附加的标志信息，用于存储额外的状态或属性，若无此信息则为 `null`。       |
+| `attributes` | 字典   | 对象的属性信息，可以包含任意键值对，若无此信息则为空字典 `{}`。         |
+| `kie_linking` | 列表   | 对象间的连接信息，可包含多对连接，例如 `[[1,2],[3,4]]`，若无此信息则为空字典 `[]`。   |
 
-X-AnyLabeling supports creating the following types of shapes:
+此外，对于一些特殊的属性定义，可参考此[文件](../../anylabeling/views/labeling/shape.py)。
 
-- **Rectangle** (`R`): Click and drag to define opposite corners, or click once for the first corner and again for the second.
-- **Rotated Rectangle** (`O`): Click to set the first point, click again for the second point defining one side, then move the cursor to set the height and click a third time.
-- **Polygon** (`P`): Click along the object's boundary to place vertices. Click the starting point or double-click the last point to close the polygon. Requires at least 3 points.
-- **Point**: Click to place a point.
-- **Line**: Click to set the start point, move the cursor, and click again to set the end point.
-- **Line Strip**: Click to place the first point, then click to add subsequent points for connected line segments. Double-click to finish.
-- **Circle**: Click to set the center, move the cursor to define the radius, and click again.
+当前，X-AnyLabeling 支持创建以下形状类型的对象：
 
-You can create shapes using the tools in the left toolbar, the right-click context menu, or keyboard shortcuts.
+- **rectangle**（R）：通过左键单击开始绘制，移动光标，左键再次单击结束矩形框绘制；
+- **rotation**（O）：通过左键单击开始绘制，移动光标，左键再次单击结束旋转框绘制；
+- **polygon**（P）：通过左键单击开始绘制，沿着物体边缘点击添加分割点，光标移动到起始顶点处单击即可结束绘制。当前最少需绘制 3 个顶点。
+- **point**：通过左键单击即可直接创建关键点；
+- **line**：通过左键单击开始绘制，移动光标，左键再次单击即可结束单线段绘制；
+- **linestrip**：通过左键单击开始绘制，移动光标再次单击创建线段，左键双击即可结束多线段绘制；
+- **circle**：通过左键单击开始绘制，移动光标确定半径，左键再次单击即可结束圆形绘制；
 
-### 2.2 Editing Shapes
+用户可通过左侧菜单栏中的对应功能选项、鼠标右键或快捷键进行操作。
 
-X-AnyLabeling provides two shape interaction modes:
+### 2.2 编辑对象
 
-- **Drawing Mode** allows rapid creation of new shapes.
-- **Editing Mode** enables editing operations such as switching modes (`Ctrl+E`), undo (`Ctrl+Z`), copy (`Ctrl+C`), paste (`Ctrl+V`), delete (`Delete`), move, resize, and rotate.
+当前，X-AnyLabeling 中定义了两种对象操作模式，即 **绘制模式** 和 **编辑模式**。
 
-Press `Ctrl+J` to quickly switch between Drawing and Editing modes. Additional object-specific operations:
+- **绘制模式**：在绘制状态下，可进行对象的快速创建；
+- **编辑模式**：在编辑状态下，可进行对象的编辑（Ctrl+E）、撤销（Ctrl+Z）、复制（Ctrl+C）、粘贴（Ctrl+V）、删除（Delete）、移动、缩放、旋转等操作。
 
-- **Rectangles**: You can drag a rectangle's corner handles to resize it, or select multiple rectangles and merge them using the right-click menu. Mouse wheel editing is also supported; when enabled via the `wheel_rectangle_editing` setting, scrolling inside the rectangle scales it, while scrolling outside adjusts the nearest edge.
-- **Polygons**: In Editing Mode, dragging an edge adds a new vertex, and holding `Shift` while clicking a vertex removes it. Polygons also support merging via the right-click menu.
-- **Rotated Rectangles**: Select a rotated rectangle and press `Z`, `X`, `C`, or `V` to rotate it in different directions. A real-time display of the rotation angle is available via the View menu.
+用户可通过快捷键 `Ctrl+J` 在绘制模式与编辑模式之间快速切换。此外：
 
-Additionally, you can quickly copy the coordinates of any selected shape to your clipboard using the **Copy Coordinates** option from the right-click context menu. For rectangles, this outputs the format `[x1, y1, x2, y2]` (top-left and bottom-right corners), while other shape types output `[x1, y1, x2, y2, x3, y3, ...]` (all vertex coordinates).
+- 对于矩形框对象，可通过四个角点调整大小；支持多选并通过右键菜单中的合并选中对象进行合并。另外也支持鼠标滚轮编辑功能，可在用户配置文件中设置（`wheel_rectangle_editing`）：启用后，滚轮在矩形内可缩放，在外部可调整对应边缘位置。
+- 对于多边形框对象，可通过在边上拖拽新增一个新的顶点或按住 `Shift` 键配合鼠标左键移除选中顶点（编辑模式下），同样也支持多对象合并。
+- 对于旋转框对象，可先单击选中目标，并通过 `Z`、`X`、`C`、`V` 控制对象的旋转角度和方向。此外，也支持显示实时的旋转角度预览。
+
+此外，用户可通过右键菜单中的 **复制坐标** 功能快速复制当前选中对象的坐标信息到剪贴板。对于矩形框，输出格式为 `[x1, y1, x2, y2]`（左上角和右下角坐标）；对于其他形状类型，输出格式为 `[x1, y1, x2, y2, x3, y3, ...]`（所有顶点坐标）。
 
 > [!TIP]
-> X-AnyLabeling provides two convenient shape navigation features:
-> - **Loop Through Objects** (Ctrl+Shift+N): Sequentially zoom in on each shape in the canvas for detailed inspection of annotation quality.
-> - **Loop Select Objects** (Ctrl+Shift+C): Sequentially select each shape in the canvas for quick editing or management of annotations.
+> X-AnyLabeling 提供两个便捷的对象浏览功能：
+> - **遍历放大对象**（Ctrl+Shift+N）：依次放大显示画布中的每个对象，便于逐一检查标注质量。
+> - **遍历选中对象**（Ctrl+Shift+C）：依次选中画布中的每个对象，便于快速编辑或管理标注。
 
-### 2.3 Editing Labels
+### 2.3 编辑标签
 
-When you create a shape or select an existing one in Edit Mode, the label panel appears (usually on the right), allowing you to edit its properties:
+当用户创建（未勾选`自动使用上一个标签`）或编辑一个对象时，默认弹出一个标签编辑框，用于编辑对象的标签信息。
 
-| Field              | Description                                                          |
-|--------------------|----------------------------------------------------------------------|
-| **Shape Label**    | Enter or select the object's category label (supports fuzzy search). |
-| **Group ID**       | Assign a numeric ID to group related shapes (e.g., for poses, tracking). |
-| **Difficult**      | Check this box if the object is difficult to recognize.             |
-| **Label List**     | Displays available labels, allowing selection.                      |
-| **Description**    | Add optional text notes specific to this shape instance.             |
-| **Label Linking**  | Used for linking shapes in tasks like Key Information Extraction (KIE). |
-| **Attributes**     | (If configured) Set custom attributes for the shape.               |
+字段 | 描述
+---- | ----
+对象标签 | 输入当前对象的类别标签，支持模糊搜索。
+群组编号 | 用于关键点检测、多目标跟踪等特定任务。
+困难标签 | 标识当前对象是否难以识别。
+标签列表 | 展示当前已添加的标签列表，默认按字母序排列。
+标签描述 | 附加的标志信息，用于存储额外的状态或属性，若无此信息则为 `null`。
+标签连接 | 用于标识关键信息提取-关系抽取任务中的连接字段。
 
-### 2.4 Adding Image Captions
+### 2.4 编辑图片
 
-X-AnyLabeling allows you to add a description or caption to the entire image:
-1. Enter Edit Mode (`Ctrl+E`).
-2. Click on an empty area of the canvas (not on a shape).
-3. Enter your text in the `Description` field in the right panel. This is saved in the `flags` field of the main JSON structure.
+当前，X-AnyLabeling 支持对当前图片进行 `Caption` 描述。具体操作是打开编辑模式，点击图片空白处，在右侧的 `Description` 区域填充图片描述。
 
-## 3. View Options
+## 3. 视图
 
-This section explains how to customize the view settings in X-AnyLabeling, including adjusting the canvas, image appearance, and how shape information is displayed, to optimize your workflow.
+本章节将向您展示如何在 X-AnyLabeling 中优化和自定义图像及标注对象的显示效果，包括画布和图片的可视化调整，以及对象信息的可视化设置，确保您的标注工作既高效又直观。
 
-### 3.1 Canvas Controls
+### 3.1 画布可视化
 
-- **Zoom In** (`Ctrl + +` or `Ctrl + =`)
-- **Zoom Out** (`Ctrl + -`)
-- **Zoom to Actual Size (100%)** (`Ctrl + 0`)
-- **Zoom to Fit Window** (`Ctrl + F`)
-- **Zoom to Fit Width** (`Ctrl + Shift + F`)
+当前，X-AnyLabeling 支持以下对画布的操作：
 
-In addition to using menu options and shortcuts, you can zoom dynamically by holding `Ctrl` and using the mouse scroll wheel. This is useful for precise annotations, especially on small objects.
+- **放大**（Ctrl++）
+- **缩小**（Ctrl+-）
+- **重置**（Ctrl+0）
 
-To maintain the current zoom level when switching between images, enable `View` > `Keep Previous Zoom Ratio`.
+除了可以在左侧窗口设置缩放比例和使用快捷键触发外，还可以通过按住 `Ctrl` 键并配合鼠标滚轮对感兴趣的区域进行局部缩放操作，用于精细化和小目标对象标注。如果您想将此更改应用到全局，请务必勾选 `视图` 下拉选项中的 `保留先前的缩放比例` 选项。
 
-### 3.2 Image Display
+### 3.2 图片可视化
 
 <p align="center">
   <img src="../../assets/resources/brightness_contrast.png" alt="Brightness-Contrast">
 </p>
 
-X-AnyLabeling allows you to adjust the brightness and contrast of the current image for better visibility:
+X-AnyLabeling 支持对当前图片进行色彩调整。具体操作如下：
 
-- Select `View` > `Brightness Contrast` to open the adjustment controls.
-- To apply the current adjustments to all subsequent images in the session, enable `View` > `Keep Current Brightness` and `View` > `Keep Current Contrast`.
+- 在界面上方菜单栏中的 `视图` 下拉选项中选择 `亮度对比度` 选项，调整合适的亮度和对比度，以获得更好的视觉效果。
+- 如果想将此更改应用到全局，请勾选 `视图` 下拉选项中的 `保持当前亮度` 和 `保持当前对比度` 选项。
 
-The status bar at the bottom displays the current filename, annotation progress (e.g., "Image 5/100"), and cursor coordinates.
+此外，当光标移动时，GUI 界面底部的信息栏会实时显示当前图片的文件名及标注进度。
 
-### 3.3 Shape Display
+### 3.3 对象可视化
 
-You can control the visibility of various shape attributes:
+对象可视化功能包括显示当前图片中已标注对象的文本描述（Ctrl+T）、标签名称（Ctrl+L）、分组编号、旋转角度、预测分数等信息。
 
-- Toggle display of label names next to shapes (`Ctrl+L` or `View` > `Show Labels`).
-- Toggle display of shape descriptions (`Ctrl+T` or `View` > `Show Text`).
-- Toggle display of other info like Group IDs, rotation angles, scores (check `View` menu for options).
+用户可以通过快捷键或者在界面上方菜单栏中的 `视图` 下拉选项中勾选相应功能来进行设置。
 
-When you hover over a shape, its dimensions (width and height) are displayed in the status bar.
+同时，当用户将光标移至感兴趣的对象时，GUI 界面底部的信息栏会实时显示当前对象的宽度、高度等信息。
 
 <p align="center">
-  <img src="../../assets/resources/filter.png" alt="Shape Display Filters">
+  <img src="../../assets/resources/filter.png" alt="Brightness-Contrast">
 </p>
 
 > [!TIP]
-> The right panel features **Label Filters** and **Group ID Filters** for filtering shapes by label or group ID. X-AnyLabeling v3.2.4+ adds the ability to select/deselect all shapes at once, making it easier to manage multiple shapes simultaneously.
+> 在 GUI 界面的右侧中间面板，我们提供了 `标签过滤器` 和 `组编号` 过滤器，方便你筛选显示特定标签或组编号的对象。在 X-AnyLabeling v3.2.4+ 版本中，新增了一键全选/反选当前对象的功能，让你可以更快速地管理和操作多个对象。
 
-### 3.4 Crosshair Customization
+### 3.4 十字瞄准线
 
 <p align="center">
-  <img src="../../assets/resources/crosshair.png" alt="Crosshair Customization">
+  <img src="../../assets/resources/crosshair.png" alt="Brightness-Contrast">
 </p>
 
-You can customize the appearance (width, transparency, color) of the crosshair cursor via `View` > `Set Crosshair`. The status bar shows the cursor's real-time pixel coordinates.
+关于十字瞄准线，用户可以通过界面上方菜单栏中的 `视图` 下拉选项中点击 `设置交叉线` 选项，调整当前十字瞄准线的宽度、透明度及颜色。
 
-### 3.5 Navigator
+此外，当光标移动时，GUI 界面底部的信息栏会实时显示位置坐标信息。
 
-X-AnyLabeling v3.2.3+ introduces a navigator feature that helps you quickly navigate to any area of high-resolution images.
+### 3.5 导航器
 
-To open the navigator, simply click `View` -> `Navigator` in the menu bar or press the shortcut key `F9`. The navigator displays a thumbnail of the current image in a separate window, with a red frame indicating your current visible area.
+X-AnyLabeling v3.2.3+ 版本新增了导航器功能，当你处理高分辨率图像时，可以通过导航器快速定位到图像的任意区域。
 
-You can click anywhere on the thumbnail to quickly jump to that location, or drag the red frame to move your view. The navigator also displays all your annotated objects in real-time, giving you a clear overview of your progress.
+要打开导航器，只需在菜单栏点击 `视图` -> `导航器` 或直接按快捷键 `F9` 即可。导航器会在独立窗口中显示当前图像的缩略图，并用红色框标出你当前的可视区域。
 
-At the bottom of the navigator, you can precisely set the zoom ratio through the input box (supporting 1% to 1000%), or drag the slider to adjust it. Additionally, you can use the mouse wheel to zoom directly in either the main canvas or the navigator window.
+你可以直接点击缩略图上的任意位置快速跳转，或者拖拽红色框来移动视野。导航器还会实时显示你标注的所有对象，让你对整体进度一目了然。
 
-This feature is particularly useful when working with ultra-high resolution images, allowing you to maintain precise local operations while keeping the global perspective.
+在导航器底部，你可以通过输入框精确设置缩放比例（支持1%到1000%），也可以拖拽滑动条进行调整。此外，无论是在主画布还是导航器窗口内，都可以直接用鼠标滚轮缩放。
 
-## 4. Annotation Formats (Import/Export)
+这个功能特别适合处理超大分辨率图像，既能保持局部的精细操作，又不会失去全局视野。
 
-`X-AnyLabeling` supports importing and exporting annotations in various standard formats. This section provides a guide for each. Access import/export functions via the `File` menu or dedicated toolbar buttons (e.g., `Import Annotations`, `Export Annotations`).
+## 4. 标签导入导出
+
+现阶段，`X-AnyLabeling` 提供了多种主流标签文件的导入/导出功能，下面简单介绍使用步骤。
 
 > [!TIP]
-> You can also consider to use the command-line tool for batch conversions! The CLI provides more efficient and flexible label format conversion capabilities, especially suited for large-scale datasets. See the [CLI docs](./cli.md#3-label-format-conversion) for details.
+> 您也可以使用命令行工具进行批量转换！CLI 工具提供了更高效、更灵活的标签格式转换功能，特别适合大规模数据集的处理。详情请参考[命令行界面文档](./cli.md#3-标签格式转换命令)。
 
-**General Notes:**
-- **Configuration Files:** Many formats require specific configuration files (e.g., listing class names) for import/export. Ensure these are prepared correctly.
-- **Default Export Path:** By default, exported files are saved to a format-specific subfolder (e.g., `labels`, `Annotations`, `mask`) within the current image directory. You can usually specify a different output path during export.
+### 4.1 YOLO标签
 
-### 4.1 YOLO Format
+当前 X-AnyLabeling 最新版本支持一键导入/导出 YOLOv5/v8 目标检测、实例分割、旋转框检测和关键点检测四大主流任务的标签文件（*.txt）。
 
-Supports YOLOv5/v8 format (`*.txt`) labels for object detection, instance segmentation, rotated bounding boxes, and keypoint detection.
+在导入/导出 YOLO 标注文件之前，需要准备一份标签配置文件，具体如下：
 
-**Configuration:**
-- **Detection/Segmentation/Rotation:** Prepare a `classes.txt` file listing class names, one per line (0-indexed). See example: [`classes.txt`](../../assets/classes.txt).
-- **Keypoint Detection (Pose):** Prepare a `*.yaml` file defining the skeleton and class names. See example: [`yolov8_pose.yaml`](../../assets/yolov8_pose.yaml). Refer to the [Ultralytics Docs](https://docs.ultralytics.com/datasets/pose/#ultralytics-yolo-format) for format details (e.g., `kpt_shape`, `flip_idx`).
+1. 对于 YOLO 目标检测、实例分割和旋转框检测任务，请参考 [classes.txt](../../assets/classes.txt) 准备配置文件，每一行代表一个类别，编号从上至下从 0 开始依次递增。
+2. 对于 YOLO 关键点检测任务，请参考 [yolov8_pose.yaml](../../assets/yolov8_pose.yaml) 进行准备，其中 `has_visible` 参数请参考[官方定义](https://docs.ultralytics.com/datasets/pose/#ultralytics-yolo-format)。
 
-> **Note:** For YOLO-Pose export, you must assign the same `group_id` to each bounding box and its corresponding keypoints during annotation so they are correctly associated.
-
-**Importing:**
-1. Click the `Import` button in the top menu bar.
-2. Select the corresponding task.
-3. Upload the prepared configuration file.
-4. Select the directory containing the label files.
-5. Optionally check "Preserve Existing Annotations" to merge new annotations with existing ones.
-6. Click OK to confirm.
-
-**Exporting:**
-1. Select `Export Annotations` > `Export YOLO Annotations`.
-2. Select the corresponding task.
-3. Provide the required configuration file.
-4. Configure options (e.g., coordinate format) if prompted and click OK.
-5. Export path defaults to a `labels` subfolder. Sample: [`demo.txt`](../../assets/labels/demo.txt).
-
-### 4.2 VOC Format
-
-Supports Pascal VOC format (`*.xml`) labels for object detection (bounding boxes) and segmentation (polygons saved within the XML, if applicable).
-
-**Configuration:** None usually required for standard VOC detection import/export. For segmentation, ensure labels match your desired classes.
-
-**Importing:**
-1. Select `Import Annotations` > `Import VOC Annotations`.
-2. Select the directory containing the `*.xml` files (usually named `Annotations`).
-
-**Exporting:**
-1. Select `Export Annotations` > `Export VOC Annotations`.
-2. Configure options if prompted and click OK.
-3. Export path defaults to an `Annotations` subfolder. Sample: [`demo.xml`](../../assets/Annotations/demo.xml).
-
-### 4.3 COCO Format
-
-Supports COCO format (`*.json`) labels for object detection, instance segmentation, and keypoint detection.
-
-**Configuration:**
-- **Detection (rectangle) / Segmentation (polygon):** Prepare a `classes.txt` file. For export, ensure `_background_` is the first class if required by your training framework. `__ignore__` can also be included.
-- **Keypoint Detection (pose):** Prepare a `*.yaml` file similar to YOLO Pose (e.g., [`yolov8_pose.yaml`](../../assets/yolov8_pose.yaml)).
-- **Instance Segmentation (polygon):** Prepare a [`labels.txt`](../../assets/labels.txt) file.
-
-**Importing:**
-1. Select `Import Annotations` > `Import COCO Annotations`.
-2. Select the task type.
-3. Provide the required configuration file (`classes.txt` or `*.yaml`).
-4. Select the COCO `*.json` annotation file.
-
-**Exporting:**
-1. Select `Export Annotations` > `Export COCO Annotations`.
-2. Select the task type.
-3. Provide the required configuration file.
-4. Click OK.
-5. Export path defaults to an `annotations` subfolder, saving a single `*.json` file. Sample: [`annotations`](../../assets/annotations).
-
-### 4.4 DOTA Format
-
-Supports DOTA format (`*.txt`) labels for oriented (rotated) object detection. Label format per line:
-`x1 y1 x2 y2 x3 y3 x4 y4 class_name difficult`
-
-**Configuration:** None required for import/export, class names are read/written directly.
-
-**Importing:**
-1. Select `Import Annotations` > `Import DOTA Annotations`.
-2. Select the directory containing the `*.txt` label files (usually `labelTxt`).
-
-**Exporting:**
-1. Select `Export Annotations` > `Export DOTA Annotations`.
-2. Click OK.
-3. Export path defaults to a `labelTxt` subfolder. Sample: [`demo_obb.txt`](../../assets/labelTxt/demo_obb.txt).
-
-### 4.5 Mask Format
-
-Supports importing and exporting semantic segmentation masks as single-channel or color image files (`*.png`).
-
-**Configuration:** Prepare a `*.json` mapping file defining the pixel value (or RGB color) for each class name.
-- Color masks: See [`mask_color_map.json`](../../assets/mask_color_map.json).
-- Grayscale masks: See [`mask_grayscale_map.json`](../../assets/mask_grayscale_map.json).
-
-**Importing:**
-1. Select `Import Annotations` > `Import MASK Annotations`.
-2. Provide the `*.json` mapping file.
-3. Select the directory containing the mask image files (`*.png`).
-
-**Exporting:**
-1. Select `Export Annotations` > `Export MASK Annotations`.
-2. Provide the `*.json` mapping file.
-3. Click OK.
-4. Export path defaults to a `mask` subfolder.
-
-### 4.6 MOT Format
-
-Supports importing and exporting Multi-Object Tracking (MOT) challenge format labels.
-
-**Configuration:** Prepare a `classes.txt` file listing class names (0-indexed).
-
-**Importing (`gt.txt`):**
-1. Select `Import Annotations` > `Import MOT Annotations`.
-2. Provide the `classes.txt` configuration file.
-3. Select the directory containing the `gt.txt` file (and potentially `seqinfo.ini`).
-
-**Exporting (creates `gt.txt`, `det.txt`, `seqinfo.ini`):**
-1. Select `Export Annotations` > `Export MOT Annotations`.
-2. Provide the `classes.txt` configuration file.
-3. Choose the output directory and click OK.
-
-> Sample files (`seqinfo.ini`, `det.txt`, `gt.txt`) are available in the [`MOT`](../../assets/MOT/) directory.
-
-**File Formats:**
-- **`seqinfo.ini`**: Sequence metadata (name, frame rate, dimensions, etc.).
-- **`det.txt`**: Detection results (used by some trackers, format: `frame,id,bb_left,bb_top,bb_width,bb_height,conf,-1,-1,-1`). Exported detections might have default confidence/ID.
-- **`gt.txt`**: Ground truth tracking annotations (format: `frame,id,bb_left,bb_top,bb_width,bb_height,valid,class_id,visibility`).
-    - `id`: Corresponds to the `group_id` assigned in X-AnyLabeling.
-    - `valid`: `1` for valid, `0` for invalid/ignored. This corresponds to the 'Difficult' checkbox in the label editing panel; checking 'Difficult' marks the trajectory as invalid (`0`).
-    - `class_id`: 0-indexed based on your `classes.txt`.
-
-**MOTS (Segmentation Tracking) Export:**
-X-AnyLabeling (v2.4.0+) also supports exporting polygon annotations in a MOTS-compatible format.
-1. Select `Export Annotations` > `Export MOTS Annotations`.
-2. Provide the `classes.txt` configuration file.
-3. Choose the save path and click OK.
+> 要以 YOLO-Pose 格式导出，您需要在标注过程中为每个组（检测框及其关键点）指定 group_id，以便 X-AnyLabeling 在导出时能够理解它们之间的从属关系。
 
 > [!NOTE]
-> The exported `mots_gt.txt` requires conversion to the official MOTS challenge format using a script. A sample converter is provided:
-> ```bash
-> # Requires pycocotools: pip install pycocotools
-> python3 tools/label_converter.py --task mots --mode custom_to_gt --src_path /path/to/your/exported_mots_gt.txt
-> ```
+> 请勿将 YOLO 标签文件（*.txt）与图像文件放置到同一目录下。
 
-### 4.7 PPOCR Format
+**导入任务**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 上传准备好的配置文件。
+4. 选择标签文件所在目录。
+5. 可选择勾选"保留现有标注"选项，将新标注与现有标注合并。
+6. 点击确定即可。
 
-Supports importing/exporting labels for PaddleOCR (PPOCR) tasks (v2.4.0+).
+**导出任务**：
+1. 点击上方菜单栏的 `导出` 按钮。
+2. 上传准备好的配置文件。
+3. 根据需求勾选对应选项，点击确定即可。
 
-**Tasks Supported:**
-- **Text Detection and Recognition:** Locates text boxes and recognizes content.
-- **Key Information Extraction (KIE):** Extracts entities and relations from text regions.
+导出路径默认保存在当前图片目录的同级目录下的 `labels` 文件夹内。
 
-**Importing:**
-1. Select `Import Annotations` > `Import PPOCR Annotations`.
-2. Select the task (Recognition or KIE).
-3. Choose the appropriate label file (`Label.txt` for Rec, `kie.json` for KIE).
+> YOLO 标签文件样式可参考 [demo.txt](../../assets/labels/demo.txt)。
 
-**Exporting:**
-1. Select `Export Annotations` > `Export PPOCR Annotations`.
-2. Select the task.
-3. Click OK.
+### 4.2 VOC标签
 
-**Export Paths & Files:**
-- **Recognition:** Defaults to `ppocr-rec` subfolder. Contains:
-    - `Label.txt`: Detection & transcription annotations.
-    - `rec_gt.txt`: Recognition ground truth (transcriptions only).
-    - `crop_img/`: Cropped images of text regions for recognition training.
-- **KIE:** Defaults to `ppocr-kie` subfolder. Contains:
-    - `class_list.txt`: List of KIE entity classes.
-    - `ppocr_kie.json`: KIE annotation results (linking text regions).
+当前 X-AnyLabeling 最新版本支持一键导入/导出检测和分割任务相关的 Pascal-VOC 标签文件（*.xml）。
 
-Samples: [`ppocr-rec`](../../assets/ppocr/ppocr-rec/), [`ppocr-kie`](../../assets/ppocr/ppocr-kie/).
+**导入任务**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 选择标签文件所在目录，点击确定即可。
 
-### 4.8 ODVG Format
+**导出任务**：
+1. 点击上方菜单栏的 `导出` 按钮。
+2. 根据需求勾选对应选项，点击确定即可。
 
-Supports importing/exporting ODVG format annotations for visual grounding tasks.
+导出路径默认保存在当前图片目录的同级目录下的 `Annotations` 文件夹内。
 
-**Configuration:** Prepare a `classes.txt` file listing category names.
+> VOC 标签文件样式可参考 [demo.xml](../../assets/Annotations/demo.xml)。
 
-**Importing:**
-1. Select `Import Annotations` > `Import ODVG Annotations`.
-2. Select the directory containing the ODVG label files.
+### 4.3 COCO标签
 
-**Exporting:**
-1. Select `Export Annotations` > `Export ODVG Annotations`.
-2. Provide the `classes.txt` configuration file.
-3. Choose the save path and click OK.
+当前 X-AnyLabeling 最新版本支持一键导入/导出目标检测、实例分割、关键点检测任务相关的 COCO 标签文件（*.json）。
 
-Sample: [`ODVG`](../../assets/ODVG).
+在导入/导出 COCO 标注文件之前，需要准备一份标签配置文件，具体如下：
 
-### 4.9 VLM-R1-OVD Format
+1. 对于 COCO 目标检测、实例分割任务，请参考 [classes.txt](../../assets/classes.txt) 准备配置文件，其中每一行代表一个类别，编号从上至下依次递增。
+2. 对于 COCO 关键点检测任务，请参考 [yolov8_pose.yaml](../../assets/yolov8_pose.yaml) 进行准备，其中 `has_visible` 参数请参考[官方定义](https://docs.ultralytics.com/datasets/pose/#ultralytics-yolo-format)。
+3. 对于 COCO 实例分割任务，请参考 [labels.txt](../../assets/labels.txt) 进行准备。
 
-Supports importing/exporting VLM-R1-OVD format (`.jsonl`) labels, often used for Open-Vocabulary Detection tasks.
+**导入任务**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 上传准备好的配置文件。
+4. 选择标签文件所在目录，点击确定即可.
 
-**Configuration (Export):**
-- `classes.txt` (Optional): Provide a `classes.txt` file to export only annotations matching those specific categories/phrases. If omitted, all unique labels found in the images are used as prompts for export.
+**导出任务**：
+1. 点击上方菜单栏的 `导出` 按钮。
+2. 选择对应的任务。
+3. 上传准备好的配置文件。
+4. 点击确定即可。
 
-**Importing:**
-1. Select `Import Annotations` > `Import VLM-R1-OVD Annotations`.
-2. Choose the `.jsonl` annotation file.
+导出路径默认保存在当前图片目录的同级目录下的 `annotations` 文件夹内。
 
-**Exporting:**
-1. Select `Export Annotations` > `Export VLM-R1-OVD Annotations`.
-2. (Optional) Provide the `classes.txt` file if filtering categories.
-3. Fill in other configuration items if prompted and click OK.
-4. Images without any labels (or matching labels if `classes.txt` is used) are automatically skipped during export.
-Sample: [`vlm_r1_ovd.jsonl`](../../assets/vlm_r1_ovd.jsonl).
+> COCO 格式的对应标签文件样式可参考 [annotations](../../assets/annotations) 目录。
 
-### 4.10 MMGD Format
+### 4.4 DOTA标签
 
-X-AnyLabeling v3.1.2+ supports one-click import of annotation files generated by [MM-Grounding-DINO](https://github.com/open-mmlab/mmdetection/blob/main/configs/mm_grounding_dino/README.md) predictions.
+当前 X-AnyLabeling 最新版本支持一键导入/导出 DOTA 标签文件（*.txt），其标签格式定义为：
 
-**Importing:**
-1. Click the `Import` button in the top menu bar.
-2. Select the corresponding task type.
-3. Upload the category file.
-4. Select the directory containing the annotation files, choose the categories of interest, set the confidence threshold according to your needs, and click OK.
+> x1 y1 x2 y2 x3 y3 x4 y4 class_name difficult
 
-The [`classes.txt`](../../assets/classes.txt) file is used for mapping label indices to category names. Each line represents a category, with indices assigned sequentially starting from 0 (top to bottom).
+**导入任务**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 选择标签文件所在目录，点击确定即可。
 
-## 5. Toolbar Tools
+**导出任务**：
+1. 点击上方菜单栏的 `导出` 按钮。
+2. 点击确定即可。
 
-The toolbar (usually at the top or integrated with the menu) provides access to additional tools and functionalities.
+导出路径默认保存在当前图片目录的同级目录下的 `labelTxt` 文件夹内。
 
-### 5.1 Data Statistics (Overview)
+> DOTA 标签文件样式可参考 [demo_obb.txt](../../assets/labelTxt/demo_obb.txt)。
+instances_default
+### 4.5 MASK标签
 
-`X-AnyLabeling` provides a data statistics tool (`Tools` > `Overview`) for reviewing your annotation progress.
+当前 X-AnyLabeling 最新版本支持一键导入/导出语义分割任务相关的掩码标签文件（*.png）。
 
-**Features:**
-- **Flexible Scope**: Analyze all images or select a specific range using sliders or input fields. Statistics update in real-time.
-- **Detailed Breakdown**: View counts per label category and per shape type (rectangle, polygon, etc.). Get an overall dataset summary.
-- **Export Reports**: Generate a zip archive containing detailed CSV files (`label_infos.csv`, `shape_infos.csv`) and the class list (`classes.txt`).
+在导入/导出掩码标注文件之前，需要准备好配置文件，具体如下：
+
+1. 对于彩色图颜色映射表文件，可参考 [mask_color_map.json](../../assets/mask_color_map.json)。
+2. 对于灰度图颜色映射表文件，可参考 [mask_grayscale_map.json](../../assets/mask_grayscale_map.json)。
+
+**导入任务**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 上传准备好的配置文件。
+4. 选择标签文件所在目录，点击确定即可。
+
+**导出任务**：
+1. 点击上方菜单栏的 `导出` 按钮。
+2. 上传准备好的配置文件。
+3. 点击确定即可。
+
+导出路径默认保存在当前图片目录的同级目录下的 `mask` 文件夹内。
+
+### 4.6 MOT标签
+
+当前 X-AnyLabeling 最新版本支持一键导入/导出多目标跟踪任务相关的标签文件。
+
+在导入/导出标注文件之前，需要准备好标签配置文件，具体可参考 [classes.txt](../../assets/classes.txt)，其中每一行代表一个类别，编号由上往下依次递增。
+
+**导出任务**：
+1. 点击上方菜单栏的 `导出` 按钮。
+2. 上传准备好的配置文件。
+3. 选择保存路径，点击确定即可。
+
+**导入任务**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 上传准备好的配置文件。
+4. 选择标签文件（`gt.txt`）所在目录，点击确定即可。
+
+> 标签文件样式可参考 [MOT](../../assets/MOT/) 目录，其中包含三个子文件：`seqinfo.ini`、`det.txt` 和 `gt.txt`。
+
+**seqinfo.ini**
+
+`seqinfo.ini` 文件包含序列信息，用于描述数据集的元数据。以下是文件的具体内容和字段说明：
+```ini
+[Sequence]
+name = MOT            # 序列名称
+imdir = mot_label     # 图片目录
+framerate = 30        # 帧率
+seqlength = 249       # 序列长度（帧数）
+imwidth = 1280        # 图片宽度
+imheight = 720        # 图片高度
+imext = .jpg          # 图片文件扩展名
+```
+
+**det.txt**
+
+`det.txt` 文件包含检测结果信息，每一行代表一个检测框。以下是文件的具体内容和字段说明：
+```txt
+帧号, 跟踪ID, 左上角x坐标, 左上角y坐标, 目标框宽度, 目标框高度, 置信度, <x>, <y>, <z> 
+```
+最后三个字段用于 `MOT3D` 任务，此处默认为 **-1**。
+
+**gt.txt**
+
+`gt.txt` 文件包含跟踪的标注信息，每一行代表一个标注框。以下是文件的具体内容和字段说明：
+```txt
+帧号, 跟踪ID, 左上角x坐标, 左上角y坐标, 目标框宽度, 目标框高度, 有效性标志, 类别ID, 可见率
+```
+这里**有效性标志**表示当前目标轨迹是否有效，`0` 表示无效数据（ignore），`1` 表示有效数据（activate）。用户可通过标签管理器中的 `useDifficult` 标志位来设置，☑️ 代表当前目标轨迹无效。
+
+---
+
+此外，针对 [MOTS](https://motchallenge.net/data/MOTS/) 数据集格式，X-AnyLabeling v2.4.0+ 版本提供对应的导出设置，具体可参考以下步骤实施：
+1. 点击上方菜单栏的 `导出`-`导出 MOTS 标签` 按钮。
+2. 上传准备好的配置文件。
+3. 选择保存路径，点击确定即可。
+
+需要注意的是，默认导出的 mots 标签并非最终官方数据集格式，这里我们提供了对应的转换代码，仅供参考：
+
+```bash
+python3 tools/label_converter.py --task mots --mode custom_to_gt --src_path /path/to/your/custom_gt.txt
+```
+
+> [!NOTE]
+> 请执行此脚本之前, 你需要先正确安装对应的 `pycocotools` 库。
+
+### 4.7 PPOCR标签
+
+当前 X-AnyLabeling 最新版本（v2.4.0+）支持一键导入/导出以下两种 PPOCR 任务的标签：
+- 文本检测与识别：定位出输入图像中的文字区域，并识别出图像中的具体文字内容。
+- 关键信息提取：用于从图像中提取所需要的关键信息，包含语义实体识别和关系抽取两个字任务。
+
+**导入任务**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 选择相应的标签文件，点击确定上传即可。
+
+**导出任务**：
+1. 点击上方菜单栏的 `导出` 按钮。
+2. 点击确定即可。
+
+对于**文本检测与识别**任务，其导出路径默认保存在当前图片目录的同级目录下的 `ppocr-rec` 文件夹内，其包含：
+1. `Label.txt`: 标注结果
+2. `rec_gt.txt`: 识别结果
+3. `crop_img`: 识别结果对应的图片训练数据
+具体的标签文件样式可参考 [ppocr-rec](../../assets/ppocr/ppocr-rec/)。
+
+对于**关键信息提取**任务，其导出路径默认保存在当前图片目录的同级目录下的 `ppocr-kie` 文件夹内，其包含：
+1. `class_list.txt`: 标签类别列表
+2. `ppocr_kie.json`: KIE 标注结果
+具体的标签文件样式可参考 [ppocr-kie](../../assets/ppocr/ppocr-kie/)。
+
+### 4.8 ODVG标签
+
+当前 X-AnyLabeling 最新版本支持一键导入/导出 Grounding 任务相关的标签文件。
+
+在导入/导出 ODVG 标注文件之前，需要准备好一份标签配置文件，具体可参考 [classes.txt](../../assets/classes.txt)，其中每一行代表一个类别，编号从上至下依次递增。
+
+**导入任务**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 选择标签文件所在目录，点击确定即可.
+
+**导出任务**：
+1. 点击上方菜单栏的 `导出` 按钮。
+2. 选择对应的任务。
+3. 上传准备好的配置文件。
+4. 选择保存路径点击确定即可。
+
+> ODVG 标签文件样式可参考 [ODVG](../../assets/ODVG)。
+
+### 4.9 VLM-R1-OVD标签
+
+当前 X-AnyLabeling 最新版本支持一键导入/导出 VLM-R1-OVD 标签文件。
+
+**导入任务**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 选择标签文件所在目录，点击确定即可.
+
+**导出任务**:
+1. 点击上方菜单栏的 `导出` 按钮。
+2. 选择对应的任务。
+3. 根据实际需要填写相应的配置项点击确定即可。
+
+其中，[classes.txt](../../assets/classes.txt) 文件用于指定需要导出的类别或短语提示。若不指定，则默认以每张图片为单位检测到所有类别或短语提示作为提示类别进行导出，并自动跳过空标签文件。
+
+> VLM-R1-OVD 标签文件导出示例可参考 [vlm_r1_ovd.jsonl](../../assets/vlm_r1_ovd.jsonl) 文件。
+
+### 4.10 MMGD标签
+
+当前 X-AnyLabeling v3.1.2+ 版本支持一键导入基于 [MM-Grounding-DINO](https://github.com/open-mmlab/mmdetection/blob/main/configs/mm_grounding_dino/README.md) 预测所获取的标签文件。
+
+**导入流程**：
+1. 点击上方菜单栏的 `上传` 按钮。
+2. 选择对应的任务。
+3. 上传类别文件。
+4. 选择标签文件所在目录，并根据自己需求勾选感兴趣的类别并设置过滤阈值，点击确定即可。
+
+其中，[classes.txt](../../assets/classes.txt) 文件用于后续标签序号到类别名称的映射，每一行代表一个类别，编号从上至下从 0 开始依次递增。
+
+
+### 5. 工具栏
+
+### 5.1 数据统计
+
+`X-AnyLabeling` 具备数据统计功能，允许用户轻松获取当前任务的统计概况。只需在顶部菜单栏选择 **工具** 下拉选项中的 **数据总览** 按钮，即可查看当前数据状态。其支持以下功能：
+
+- 数据导出功能
+  - 支持导出 CSV 格式的统计报告
+  - 自动生成包含标签信息、形状统计和类别列表的压缩包
+  - 导出文件包括：
+    - label_infos.csv：标签数量统计
+    - shape_infos.csv：标注形状统计
+    - classes.txt：所有类别列表
+
+- 灵活的统计范围
+  - 支持选择指定范围内的图像进行统计
+  - 可查看单张或多张图像的统计信息
+  - 实时更新统计结果
+
+- 多维度数据分析
+  - 按标签类别统计：展示每个类别的标注数量
+  - 按形状类型统计：包括多边形、矩形、旋转框、点、线条、圆形等
+  - 总体数据概览：显示数据集的整体分布情况
 
 <p align="center">
-  <img src="../../assets/resources/overview.png" alt="Overview Window">
+  <img src="../../assets/resources/overview.png" alt="Overview">
 </p>
 
-**Usage:**
-1. Go to `Tools` > `Overview`.
-2. Review the statistics displayed in the window.
-3. (Optional) Select a specific image range to analyze.
-4. Click `Export` to save the detailed reports as a zip file.
+> 使用说明：
+> 1. 点击顶部菜单栏的"工具" -> "数据总览"
+> 2. 在弹出的统计窗口中查看数据分布
+> 3. 可选择特定范围的图像进行统计
+> 4. 点击"导出"按钮将统计结果保存为压缩包
 
-### 5.2 Save Cropped Images
+### 5.2 保存子图
 
-The cropped image saving function can be implemented through the following steps:
+子图保存功能可通过以下步骤实施：
 
-1. Click **Tools** > **Save Cropped Images** in the top menu bar.
-2. In the popup dialog, configure:
-   - Save Path: Choose the target folder for saving cropped images
-   - Min Width: Set minimum width in pixels for filtering
-   - Min Height: Set minimum height in pixels for filtering
-3. After clicking OK, the system will automatically export all annotated objects sorted by category name to the specified path.
+1. 点击上方菜单栏的 **工具** -> **保存子图** 选项。
+2. 在弹出的对话框中设置：
+   - 保存路径：选择子图保存的目标文件夹
+   - 最小宽度：设置过滤的最小宽度像素值
+   - 最小高度：设置过滤的最小高度像素值
+3. 点击确定后，系统会自动将所有标注对象按照类别名称分类导出到指定路径下。
 
-### 5.3 Label Manager
+### 5.3 标签管理器
 
-`X-AnyLabeling` provides tools for managing labels globally across your dataset via `Tools` > `Label Manager`.
+当前，`X-AnyLabeling` 提供对标签对象的全局管理功能。用户可以通过以下操作进行管理：
 
-**Operations:**
-- **Delete Labels**: Remove specific label classes entirely from the list of available labels.
-- **Rename Labels**: Change the name of existing label classes. This updates the label list but does *not* automatically update existing annotations using the old name.
-- **Control Label Visibility**: Use the `Visible` column checkboxes to show or hide specific labels on the canvas.
-- **Change Label Colors**: Modify the display color for specific label classes *for the current session only*. (For persistent changes, see [7.2 Custom Label Colors](#72-custom-label-colors)).
+- **删除标签**：移除不需要的标签。
+- **替换标签名称**：更新标签名称以适应新的分类标准。
+- **控制标签可见性**：通过 `Visible` 列的复选框控制特定标签在画布上的显示或隐藏。
+- **更改标签颜色**：调整标签的显示颜色以提高辨识度。
 
-**Visibility Quick Actions**:
-- Right-click on the `Visible` column to quickly:
-  - **Select All**: Show all labels at once
-  - **Deselect All**: Hide all labels at once
-- Visibility settings persist across image switches and take effect after clicking the `Go` button.
+用户可通过点击 **工具** -> **标签管理器** 选项（快捷键：**Alt+L**），在弹出的标签管理窗口中进行相应操作。
 
-### 5.4 Shape Type Conversion
+**可见性快捷操作**：
+- 在 `Visible` 列上点击鼠标右键，可快速执行以下操作：
+  - **Select All**：一键显示所有标签
+  - **Deselect All**：一键隐藏所有标签
+- 可见性设置会在切换图片时保持，点击 `Go` 按钮确认后生效。
 
-You can convert between certain shape types using the `Tools` menu. Supported conversions include:
+此外，当需要快速选择画布上的所有标注对象时，请按照以下步骤操作：
 
-- **Rectangle to Rotated Box**
-- **Rotated Box to Rectangle**
-- **Polygon to Bounding Box**
-- **Polygon to Rotated Box**
+1. **切换编辑模式**  
+   在左侧工具栏中点击选择相应图标（或按快捷键 `Ctrl+E`）进入编辑模式
 
-> **Note:** Converting *to* Rectangle or Bounding Box uses the axis-aligned bounding box, losing rotation or precise boundary information. This conversion is **irreversible** within the tool, so use it carefully.
+2. **激活标签列表**  
+   在右侧对象标签栏中，使用鼠标左键单击任意一个目标标签
 
-### 5.5 Digit Shortcut Manager
+3. **执行全选操作**  
+   保持按住 `Shift` 键的同时：
+   - 先按 `Home` 键选中当前标签以上的所有对象
+   - 再按 `End` 键选中当前标签以下的所有对象
 
-The Digit Shortcut Manager is a practical feature provided by X-AnyLabeling that allows users to configure numeric keys (0-9) for quick shape creation, significantly improving labeling efficiency. 
+### 5.4 标签类型转换
 
-By pre-setting the drawing mode and label name corresponding to each numeric key, users can quickly create desired annotation shapes with a single keystroke during the labeling process.
+`X-AnyLabeling` 提供了标签类型转换功能，允许用户在界面上方菜单栏的 **工具** 选项中点击对应的设置项，以完成标签类型的转换。当前支持的标签类型转换包括：
 
-To open the Digit Shortcut Manager, select **Tools** in the top menu bar of the main interface, then click on the **Digit Shortcut Manager** option, or simply use the shortcut key **Alt+D**.
+- **矩形框转旋转框**：一键将矩形框标签转换为旋转框标签。
+- **旋转框转矩形框**：一键将旋转框标签转换为矩形框标签。
+- **多边形框转多边形框**：一键将多边形框标签转换为多边形框标签。
+- **多边形框转旋转框**：一键将多边形框标签转换为旋转框标签。
 
-In the Digit Shortcut Manager dialog, users can see a table containing all numeric keys (0-9), with each row including the following information:
+注意：`旋转框转矩形框` 和 `多边形框转多边形框` 操作默认取最大外接矩，因此会丢失一些标签信息，如旋转角度等。这些操作为**不可逆**，请谨慎使用。
 
-- **Digit**: Represents the numeric key (0-9) on the keyboard
-- **Drawing Mode**: Choose the type of shape to draw from the dropdown menu, including rectangle, polygon, rotation, circle, line, point, linestrip, or none
-- **Label**: Specify the default label name for the shape (required)
 
-**Configuring Shortcuts**: Select the drawing mode corresponding to the digit, enter the default label name for that shape (required when a drawing mode is enabled), then click **OK** to save the settings.
+### 5.5 数字快捷键管理器
 
-**Resetting Shortcuts**: Click the **Reset** button to clear all shortcut settings. The system will display a confirmation dialog, and all configurations will be cleared after confirmation.
+数字快捷键管理器是 X-AnyLabeling 提供的一项实用功能，它允许用户为数字键（0-9）配置快速绘制形状的功能，大幅提高标注效率。通过预先设置数字键对应的绘制模式和标签名称，用户可以在标注过程中一键快速创建所需的标注形状。
 
-**Using Shortcuts**: In the labeling interface, simply press the configured numeric key (0-9). The system will automatically switch to the corresponding drawing mode with the preset label name. After drawing is complete, the annotation will automatically use the preset label name.
+在主界面上方菜单栏选择**工具**，然后点击**数字快捷键管理器**选项，或者直接使用快捷键 **Alt+D** 即可打开配置界面。
 
-**Offline Configuration**: In addition to configuration through the GUI interface, users can directly configure shortcuts in the `.xanylabelingrc` configuration file in their user directory. The configuration format is as follows:
+在数字快捷键管理器对话框中，用户可以看到一个包含所有数字键（0-9）的表格，每行包含以下信息：
+
+- **数字**：表示键盘上的数字键（0-9）
+- **绘制模式**：从下拉菜单中选择绘制形状的类型，包括矩形框、多边形、旋转框、圆形、线段、点、折线或空选项
+- **标签**：为该形状指定默认标签名称（必填）
+
+**配置快捷键**：选择数字对应的绘制模式，输入该形状的默认标签名称（启用绘制模式后必须填写），然后点击**确定**保存设置。
+
+**重置快捷键**：点击**重置**按钮可清除所有快捷键设置，系统会弹出确认对话框，确认后将清除所有配置。
+
+**使用快捷键**：在标注界面中，直接按下已配置的数字键（0-9），系统会自动切换到对应的绘制模式，并预设标签名称。绘制完成后，标注将自动使用预设的标签名称。
+
+**离线配置**：除了通过GUI界面配置外，用户还可以直接在用户目录下的 `.xanylabelingrc` 配置文件中进行离线配置。配置格式如下：
 
 ```yaml
 digit_shortcuts:
   0: {mode: polygon, label: person}
   1: {mode: rectangle, label: car}
   2: {mode: rotation, label: truck}
-  # More configurations...
+  # 更多配置...
 ```
 
-Digit shortcut settings configured through the GUI interface will be automatically synchronized and saved to the `.xanylabelingrc` configuration file in the current user directory, and will be automatically loaded the next time the software is started. Similarly, if you directly modify the configuration file, the software will automatically recognize and apply these changes after restart.
+通过GUI界面配置的数字快捷键设置会自动同步保存到当前用户目录下的 `.xanylabelingrc` 配置文件中，下次启动软件时会自动加载。同样，如果直接修改配置文件，软件重启后也会自动识别并应用这些更改。
 
-By properly configuring numeric shortcuts, you can significantly improve labeling efficiency and reduce repetitive operations, particularly suitable for scenarios that require frequent switching between different annotation types.
+通过合理配置数字快捷键，您可以显著提高标注效率，减少重复操作，特别适合需要频繁切换不同标注类型的场景。
 
-### 5.6 Group ID Manager
+### 5.6 群组编号管理器
 
-The Group ID Manager is a batch management feature for group ID fields, allowing users to uniformly modify and delete group IDs within a specified range. You can access it in two ways:
+群组编号管理器是针对群组编号字段提供的批量管理功能，允许用户对指定范围内的群组编号进行统一修改和删除操作。您可以通过以下两种方式打开：
 
-- Select **Tools** -> **Group ID Manager** from the top menu bar in the main interface
-- Use the shortcut key **Alt+G**
+- 在主界面上方菜单栏选择**工具** -> **群组编号管理器**
+- 直接使用快捷键 **Alt+G**
 
 <p align="center">
   <img src="../../assets/resources/gid_manager.png" alt="Information">
 </p>
 
-### 5.7 Shape Manager
+### 5.7 对象管理器
 
-The Shape Manager handles batch annotation operations for video frame sequences. Access it via **Tools -> Shape Manager** or press **Alt+S**.
+对象管理器用于视频帧序列的批量标注处理，通过 **工具 -> 对象管理器** 或快捷键 **Alt+S** 打开。
 
-Four operation modes are available (mutually exclusive):
+对话框提供四种操作模式（单选）：
 
-- **Delete All Annotations**: Removes all JSON annotation files within the specified frame range while preserving image files. Automatically unchecks the corresponding frames after execution.
+- **删除所有标注**：移除指定帧范围内的所有 JSON 标注文件，图像文件保留。执行后会自动取消对应帧的勾选状态。
 
-- **Delete All Images with Annotations**: Deletes both images and annotations. Image files are moved to the `_delete_` backup directory rather than being permanently deleted. The file list refreshes automatically after completion.
+- **删除所有图像及标注**：同时删除图像和标注文件。图像文件会移至 `_delete_` 目录作为备份，而非永久删除。完成后文件列表自动刷新。
 
-- **Remove Selected Shapes**: Searches for and removes objects matching the currently selected shape within the frame range. If a frame contains only matching objects, the entire annotation file is deleted; otherwise, only matching objects are removed. At least one shape must be selected on the canvas before use.
+- **移除选定形状**：从帧范围内查找并移除与当前选中形状匹配的对象。若某帧仅包含匹配对象则删除整个标注文件，否则仅移除匹配部分。使用前需在画布上至少选中一个形状作为匹配模板。
 
-- **Add Selected Shapes**: Batch copies the currently selected shapes to specified frames. The system automatically detects boundaries and skips shapes that exceed the image range, while avoiding duplicate additions of existing identical objects. Annotation files are auto-created for frames without them, and corresponding frames are automatically checked upon completion.
+- **添加选定形状**：将当前选中的形状批量复制到指定帧。系统会自动检测边界并跳过超出图像范围的形状，同时避免重复添加已存在的相同对象。若目标帧无标注文件会自动创建，完成后自动勾选对应帧。
 
-Set the start and end frame numbers: From defaults to the current frame, To defaults to empty and must be manually filled. Frame numbers correspond to the file list index (starting from 1). Clicking Go triggers a confirmation dialog before execution. Remove and add operations support progress display and mid-process cancellation.
+使用时需设置起止帧编号：From 默认为当前帧，To 默认为空需手动填写。帧编号对应文件列表序号（从1开始）。点击 Go 后会弹出二次确认，通过后开始执行。移除和添加操作支持进度显示和中途取消。
 
 > ![NOTE]
-> Note that delete annotation operations are irreversible, while deleted images can be manually recovered from the backup directory.
+> 注意删除标注操作不可恢复，删除图像可从备份目录手动恢复。
 
-## 6. Help and Language
 
-### 6.1 About X-AnyLabeling
+## 6. 帮助及语言
+
+### 6.1 获取版本信息
 
 <p align="center">
-  <img src="../../assets/resources/information.png" alt="About Dialog">
+  <img src="../../assets/resources/information.png" alt="Information">
 </p>
 
-Select `Help` > `About` to view the application version and runtime environment details (e.g., Python version, library versions).
+在界面上方菜单栏中，用户可点击 **帮助** -> **关于** 选项，查看当前版本的详细信息，包括版本号和运行环境等。
 
-### 6.2 Setting the Language
+### 6.2 设置软件语言
 
-Select your preferred interface language (`Chinese` or `English`) from the `Language` menu.
+在界面上方菜单栏中，用户可点击 **语言** 下拉框，选择所需语言进行设置。目前支持 **中文** 和 **英文** 两种语言。切换语言后，软件将自动重启，请确保在切换前保存好当前数据，以防数据丢失。
 
-**Important:** The application will restart automatically after changing the language. Save your work before switching languages to avoid data loss.
 
-## 7. Configuration
+## 7. 用户配置
 
-`X-AnyLabeling` stores user preferences in a configuration file named `.xanylabelingrc`, located in your user's home directory:
+`X-AnyLabeling` 的用户配置文件默认存放在当前用户目录下的 `.xanylabelingrc` 文件中。您可以通过以下路径找到该文件：
 
-- **Linux/macOS**: `~/.xanylabelingrc`
-- **Windows**: `C:\Users\<YourUsername>\.xanylabelingrc`
+- **Linux**: `~/.xanylabelingrc`
+- **Windows**: `C:\Users\<用户名>\.xanylabelingrc`
 
-You can manually edit this file (it's in YAML format) to customize settings like keyboard shortcuts, label colors, and default behaviors. Close X-AnyLabeling before editing and restart it afterwards for changes to take effect.
+在该配置文件中，您可以调整各种用户自定义设置，例如界面布局、快捷键配置等。
 
-### 7.1 Keyboard Shortcuts
+### 7.1 快捷键设置
 
-The default keyboard shortcuts are listed below. You can customize these in the `.xanylabelingrc` file if needed (e.g., to resolve conflicts with system shortcuts or match personal preferences).
+当前 X-AnyLabeling 默认的快捷键配置如下，用户可以根据自身需求进行修改，确保避免快捷键冲突：
 
-| Shortcut              | Function                                         | Notes                                      |
-|-----------------------|--------------------------------------------------|--------------------------------------------|
-| `d`                   | Next Image                                       |                                            |
-| `a`                   | Previous Image                                   |                                            |
-| `Ctrl+Shift+d`        | Next Annotated/Unannotated Image                 | Behavior depends on `switch_to_checked` config |
-| `Ctrl+Shift+a`        | Previous Annotated/Unannotated Image             | Behavior depends on `switch_to_checked` config |
-| `p`                   | Create Polygon Tool                              | Shortcut might vary (check interface)      |
-| `o`                   | Create Rotated Rectangle Tool                    | Shortcut might vary                        |
-| `r`                   | Create Rectangle Tool                            | Shortcut might vary                        |
-| `i`                   | Run AI Model Inference                           | If model loaded                            |
-| `q`                   | Add Positive Point (SAM)                         | SAM Interactive Segmentation Mode          |
-| `e`                   | Add Negative Point (SAM)                         | SAM Interactive Segmentation Mode          |
-| `b`                   | Clear Points (SAM)                               | SAM Interactive Segmentation Mode          |
-| `f`                   | Finalize Shape (SAM)                             | SAM Interactive Segmentation Mode          |
-| `g`                   | Group Selected Shapes                            | Assigns next available group ID            |
-| `u`                   | Ungroup Selected Shapes                          | Sets group ID to null                      |
-| `s`                   | Hide Selected Shapes                             | Temporarily hide                           |
-| `w`                   | Show Hidden Shapes                               | Show previously hidden shapes              |
-| `Alt+d`               | Open Digit Shortcut Manager                      | Configure numeric key shortcuts            |
-| `Alt+g`               | Open Group ID Manager                            | Manually set group ID                      |
-| `Alt+l`               | Open Label Manager                               | Rename, Delete, Hide/Show, Adjust Color    |
-| `Alt+s`               | Open Shape Manager                               | Add, Delete, Remove                        |
-| `Ctrl+Delete`         | Delete Current Label File (`.json`)              | **Irreversible**                           |
-| `Ctrl+Shift+Delete`   | Delete Current Image & Label File                | Moves to `_delete_` folder                 |
-| `Ctrl+1`              | Open Chatbot                                     |                                            |
-| `Ctrl+2`              | Open Visual Question Answering Dialog            |                                            |
-| `Ctrl+3`              | Open Image Classifier Dialog                     |                                            |
-| `Ctrl+q`              | Quit Application                                 |                                            |
-| `Ctrl+i`              | Open Single Image File                           |                                            |
-| `Ctrl+o`              | Open Single Video File                           |                                            |
-| `Ctrl+u`              | Open Image Directory                             |                                            |
-| `Ctrl+e`              | Toggle Edit Mode                                 | Switch between drawing & editing shapes    |
-| `Ctrl+j`              | Edit Polygon Points                              | Fine-tune polygon vertices                 |
-| `Ctrl+c`              | Copy Selection                                   | Copies selected shape(s)                   |
-| `Ctrl+v`              | Paste Selection                                  | Pastes copied shape(s)                     |
-| `Ctrl+d`              | Duplicate Selection                              | Creates copy of selected shape(s)          |
-| `Ctrl+g`              | Show Statistics (Overview Window)                | Opens Data Statistics Tool                 |
-| `Ctrl+h`              | Toggle All Shapes Visibility                     | Show/Hide all annotations on canvas        |
-| `Ctrl+p`              | Toggle Preserve Previous Mode                    | (Needs clarification - likely relates to keeping label/settings) |
-| `Ctrl+y`              | Toggle 'Use Last Label'                          | Auto-fills next shape with previous label  |
-| `Ctrl+Shift+y`        | Toggle 'Use Last Group ID'                       | Auto-fills next gid with previous label    |
-| `Ctrl+m`              | Toggle Batch Mode                                | (Needs clarification - likely multi-image annotation) |
-| `Ctrl+a`              | Toggle Auto-Annotation                           | (Needs clarification - likely AI-assist)   |
-| `Ctrl+s`              | Save Current Annotations                         | Manual save (if auto-save is off)          |
-| `Ctrl+l`              | Toggle Label Text Visibility                     | Show/Hide label names on shapes            |
-| `Ctrl+t`              | Toggle Description Text Visibility               | Show/Hide shape descriptions on shapes     |
-| `Ctrl+k`              | Toggle Linking Display                           | Show/Hide shape linking visualization      |
-| `Ctrl+Shift+l`        | Toggle Attributes Display                        | Show/Hide shape attributes on canvas       |
-| `Ctrl+Shift+s`        | Set Output Directory                             | Change where `.json` files are saved       |
-| `Ctrl+0`              | Zoom to Actual Size (100%)                       |                                            |
-| `Ctrl++` / `Ctrl+=`   | Zoom In                                          |                                            |
-| `Ctrl+-`              | Zoom Out                                         |                                            |
-| `Ctrl+f`              | Zoom to Fit Window                               |                                            |
-| `Ctrl+Shift+f`        | Zoom to Fit Width                                |                                            |
-| `Ctrl+Shift+m`        | Merge Selected Shapes                            | Creates bounding box around selection      |
-| `Ctrl+Shift+n`        | Cycle Through Shapes                             | Zoom in next shape on canvas               |
-| `Ctrl+Shift+c`        | Cycle Select Shapes                              | Selects next shape on canvas               |
-| `Ctrl+z`              | Undo Last Action                                 |                                            |
-| `Delete`              | Delete Selection                                 | Deletes selected shape(s)                  |
-| `Esc`                 | Deselect Object / Cancel Drawing                 |                                            |
-| `Backspace`           | Delete Selected Point (Polygon Edit)             | While editing polygon points (`Ctrl+J`)    |
-| `↑`, `→`, `↓`, `←`    | Move Selection (Arrow Keys)                      | Nudge selected shape(s)                    |
-| `z`, `x`, `c`, `v`    | Rotate Selection                                 | Rotates selected shape(s) (if applicable)  |
-| `F9`                  | Show/Hide Navigator                              | Toggle navigator window                    |
+| 快捷键                 | 功能                                    |
+|-----------------------|----------------------------------------|
+| d                     | 打开下一个文件                          |
+| a                     | 打开上一个文件                          |
+| Ctrl + Shift + d      | 打开下一个已标注或未标注的文件                 |
+| Ctrl + Shift + a      | 打开上一个已标注或未标注的文件                 |
+| p or Ctrl + n         | 创建多边形                              |
+| o                     | 创建旋转框                              |
+| r or Ctrl + r         | 创建矩形框                              |
+| i                     | 运行模型                                |
+| q                     | `SAM 模式` 的正样本点                   |
+| e                     | `SAM 模式` 的负样本点                    |
+| b                     | `SAM 模式` 快速清除提示点               |
+| f                     | `SAM 模式` 确认完成                    |
+| g                     | 组合选定的对象                         |
+| u                     | 取消组合选定的对象                     |
+| s                     | 隐藏选定的对象                         |
+| w                     | 显示选定的对象                         |
+| Alt + d               | 打开数字快捷键管理器                    |
+| Alt + g               | 打开群组编号管理器                      |
+| Alt + l               | 打开标签管理器，支持批量重命名、删除、显示/隐藏、调整标签颜色 |
+| Alt + s               | 打开对象管理器，支持批量新增、删除、移除指定对象 |
+| Ctrl + Delete         | 删除当前标签文件                    |
+| Ctrl + Shift + Delete | 删除当前图像文件                        |
+| Ctrl + 1              | 打开聊天机器人对话窗口                   |
+| Ctrl + 2              | 打开视觉问答窗口                     |
+| Ctrl + 3              | 打开图像分类器窗口                   |
+| Ctrl + q              | 退出当前应用程序                        |
+| Ctrl + i              | 打开图像文件                           |
+| Ctrl + o              | 打开视频文件                           |
+| Ctrl + u              | 从目录加载所有图像                    |
+| Ctrl + e              | 编辑标签                               |
+| Ctrl + j              | 编辑多边形                             |
+| Ctrl + c              | 复制选定的对象                         |
+| Ctrl + v              | 粘贴选定的对象                         |
+| Ctrl + d              | 复制多边形                             |
+| Ctrl + g              | 显示当前任务的标注统计                 |
+| Ctrl + h              | 显示当前图片的所有对象                 |
+| Ctrl + p              | 切换保留上一个模式                     |
+| Ctrl + y              | 切换自动使用上一个标签                |
+| Ctrl + Shift + g      | 切换自动使用上一个群组编号           |
+| Ctrl + m              | 唤醒批量标注                           |
+| Ctrl + a              | 启用自动标注                           |
+| Ctrl + s              | 保存当前标注                           |
+| Ctrl + l              | 显示/隐藏标签                           |
+| Ctrl + t              | 显示/隐藏文本                           |
+| Ctrl + k              | 显示/隐藏连接线                         |
+| Ctrl + Shift + l      | 显示/隐藏属性                           |
+| Ctrl + Shift + s      | 更改输出目录                           |
+| Ctrl + z              | 撤销上一操作                           |
+| Ctrl + 0              | 缩放至原始大小                         |
+| Ctrl + + or Ctrl +=   | 放大                                   |
+| Ctrl + f              | 适应窗口                               |
+| Ctrl + Shift + f      | 适应宽度                               |
+| Ctrl + Shift + m      | 合并选定的对象                         |
+| Ctrl + Shift + n      | 遍历放大对象                         |
+| Ctrl + Shift + c      | 遍历选中对象                           |
+| Ctrl + z              | 撤销上一操作                           |
+| Delete                | 删除选中对象                          |
+| Esc                   | 取消选择的对象                         |
+| Backspace             | 删除选定的点                           |
+| ↑→↓←                  | 使用键盘箭头移动选定的对象             |
+| zxcv                  | 使用键盘旋转选定的矩形框               |
+| F9                    | 显示/隐藏导航器                       |
 
-### 7.2 Custom Label Colors
 
-To persistently define custom colors for specific labels:
+### 7.2 修改自定义标签颜色
 
-1. Open the `.xanylabelingrc` file in a text editor.
-2. Ensure the `shape_color:` field is set to `manual`. If it's `null` or `auto`, change it to `manual`.
-3. Find or add the `label_colors:` section.
-4. Add or modify entries for your labels using the format `label_name: [R, G, B]`, where R, G, B are integer values from 0 to 255.
-5. Save the file and restart X-AnyLabeling.
+以下是修改自定义标签颜色的步骤：
 
-Example configuration:
+a. 打开用户目录下的配置文件 `.xanylabelingrc`，您可以使用文本编辑器或命令行工具进行编辑。
+
+b. 在配置文件中找到字段 `shape_color`，确保其值设置为 "manual"，这表示您将手动设置标签的颜色。
+
+c. 定位到 `label_colors` 字段，这是一个包含各个标签及其对应颜色的部分。
+
+d. 在 `label_colors` 中，找到您希望修改颜色的标签，例如 "person"、"car"、"bicycle" 等。
+
+e. 使用 RGB 值表示颜色，例如 `[255, 0, 0]` 表示红色，`[0, 255, 0]` 表示绿色，`[0, 0, 255]` 表示蓝色。
+
+f. 将您想要设置的颜色值替换到相应标签的值中，保存文件并关闭编辑器。
+
+具体示例如下：
 ```YAML
-# ... other settings ...
-default_shape_color: [0, 255, 0] # Default color if label not in list (Green)
-shape_color: manual           # Use colors defined below ('auto' cycles colors)
-shift_auto_shape_color: 0     # Offset for 'auto' color cycling
+...
+default_shape_color: [0, 255, 0]
+shape_color: manual  # null, 'auto', 'manual'
+shift_auto_shape_color: 0
 label_colors:
-  person: [220, 20, 60]     # Crimson
-  car: [0, 0, 142]          # Navy Blue
-  bicycle: [119, 11, 32]    # Maroon
-  traffic light: [255, 165, 0] # Orange
-  # Add more labels and their RGB colors here
-# ... other settings ...
+  person: [255, 0, 0]
+  car: [0, 255, 0]
+  bicycle: [0, 0, 255]
+  ...
+...
 ```
 
-> **Note:** Since v2.4.0, you can also temporarily change label colors for the *current session* via `Tools` > `Label Manager`. Changes made there are not saved to the configuration file.
+完成上述步骤后，您已成功修改了自定义标签的颜色。下次在标注过程中使用这些标签时，它们将显示您所设置的颜色。
 
-### 7.3 Predefined Labels
+> 当前 X-AnyLabeling v2.4.0+ 版本支持在 GUI 界面直接设置 `label_colors`。您可以点击菜单栏的 `工具` -> `标签管理` 进行设置，此更改仅对当前窗口生效。
 
-To offer flexibility in label management and meet diverse usage scenarios, X-AnyLabeling supports not only loading labels via startup command-line arguments but also provides two additional convenient methods for loading predefined labels.
+### 7.3 加载预定义标签
 
-**Option 1: Set via Config File (Persistent)**
+为了兼顾标签管理的灵活性与用户在不同场景下的使用需求，X-AnyLabeling 在支持通过软件启动命令加载标签的基础上，还提供了另外两种便捷方式，用于加载预定义标签。
 
-Edit the `labels` field in the config file to define your labels.
-Note: If a label is a number, wrap it in single quotes (`''`) to avoid parsing issues. For example:
+**方式一：通过配置文件设置（永久生效）**
+
+直接修改配置文件中的 `labels` 字段来设置标签。需要注意的是，如果标签名称是纯数字，请务必用单引号 `''` 括起来。例如：
 
 ```yaml
 labels:
@@ -791,10 +860,9 @@ labels:
 - _phone
 ```
 
-**Option 2: Upload via Interface (Temporary)**
+**方式二：通过界面上传（临时生效）**
 
-Create a simple `.txt` file with one label per line:
-
+只需准备一个简单的文本文件（`.txt`），将标签名称逐行列出：
 ```txt
 person
 car
@@ -803,130 +871,142 @@ dog
 cat
 ```
 
-Then upload it through the menu: `Upload` → `Upload Label Classes File`.
+然后通过菜单栏的 `Upload` → `Upload Label Classes File` 上传该文件。
 
-🔔 **Tips:**
+🔔 **小贴士：**
+- 配置文件方式设置的标签会永久保存，重启软件后依然有效，适合长期使用固定标签集的场景
+- 界面上传方式的标签仅在当前使用期间有效，重启后需要重新上传，适合需要经常切换不同标签集的场景
 
-* Labels set via the config file are saved permanently and remain after restarting the software — ideal for fixed, long-term label sets.
-* Labels uploaded via the interface are temporary and reset after restarting — useful when frequently switching between different label sets.
+### 7.4 自动切换编辑模式
 
-### 7.4 Auto-Switch to Edit Mode
+在 X-AnyLabeling v2.4.0 及以上版本，新增**自动切换至编辑模式**功能，用户可通过配置文件中的`auto_switch_to_edit_mode`字段进行设置：
 
-To streamline the annotation workflow, you can configure the application to automatically switch to **Edit Mode** immediately after a shape is created. This is useful if you frequently need to adjust a shape right after drawing it. This behavior is controlled by the `auto_switch_to_edit_mode` setting in the `.xanylabelingrc` file.
+| 选项            | 功能                                    |
+|-------------------|----------------------------------------|
+| true   | 创建对象后自动切换为编辑模式。                     |
+| false  | 支持连续创建多个同类型对象，需手动切换为编辑模式。  |
 
-- Set to `true` to enable automatic switching to Edit Mode.
-- Set to `false` (the default) to remain in Drawing Mode, which allows for the continuous creation of multiple shapes.
+### 7.5 悬浮自动高亮模式
 
-### 7.5 Hover Auto-Highlight
+在 X-AnyLabeling v2.4.0 及以上版本，新增**悬浮自动高亮模式**功能，用户可通过配置文件中的`auto_highlight_shape`字段进行设置：
 
-For quicker selection of shapes, you can enable **Hover Auto-Highlight**. When this feature is active, simply moving your mouse cursor over a shape will highlight it, making it clear which shape will be selected if you click. This is controlled by the `auto_highlight_shape` setting in the `.xanylabelingrc` file.
+| 选项            | 功能                                    |
+|-------------------|----------------------------------------|
+| true   | 鼠标悬浮在对象上方时自动高亮，用于快速调整当前选中对象。 |
+| false  | 鼠标悬浮在对象上方时需用户手动点击对应对象显示高亮。  |
 
-- Set to `true` to highlight shapes on hover.
-- Set to `false` (the default) to only highlight shapes upon clicking them.
+注：在`多标签分类任务`的标定中，当用户手动上传属性文件时，`auto_highlight_shape`字段会被设置为`false`，以避免因误触而导致的属性窗口状态栏的切换，从而提升用户体验。
 
-*Note: When working on multi-label classification tasks with a custom attributes file loaded, this setting is automatically disabled to prevent accidentally changing the active shape while interacting with the attributes panel.*
+### 7.6 对象属性自定义
 
-### 7.6 Shape Appearance
+a. 打开用户目录下的配置文件 `.xanylabelingrc`，您可以使用文本编辑器或命令行工具进行编辑。
 
-Customize the default appearance of shapes (colors during drawing/selection, point size, line width) by editing the `shape:` section in the `.xanylabelingrc` file:
+b. 在配置文件中找到字段 `shape`，根据需求修改相应字段值，包括边框颜色、填充颜色、顶点填充颜色、选中状态下的边框颜色、选中状态下的填充颜色等。
 
 ```YAML
+...
 shape:
-  # Default drawing colors (RGBA: Red, Green, Blue, Alpha)
-  line_color: [0, 255, 0, 128]       # Outline color (Green, semi-transparent)
-  fill_color: [220, 220, 220, 150]  # Fill color (Light Gray, semi-transparent)
-  vertex_fill_color: [0, 255, 0, 255] # Vertex color (Green, opaque)
-
-  # Colors when selected/hovered (RGBA)
-  select_line_color: [255, 255, 255, 255] # Outline color (White, opaque)
-  select_fill_color: [0, 255, 0, 155]    # Fill color (Green, semi-transparent)
-  hvertex_fill_color: [255, 255, 255, 255] # Vertex color (White, opaque)
-
-  # Sizes (in pixels)
-  point_size: 10 # Diameter of points/vertices
-  line_width: 4  # Width of shape outlines
+  # drawing
+  line_color: [0, 255, 0, 128]
+  fill_color: [220, 220, 220, 150]
+  vertex_fill_color: [0, 255, 0, 255]
+  # selecting / hovering
+  select_line_color: [255, 255, 255, 255]
+  select_fill_color: [0, 255, 0, 155]
+  hvertex_fill_color: [255, 255, 255, 255]
+  point_size: 10
+  line_width: 4
+...
 ```
 
-### 7.7 Model Download Source
+### 7.7 模型下载源配置
 
-`X-AnyLabeling` downloads pre-trained models used for AI-assisted features (like SAM or detection models). You can configure the download source (Model Hub). The source is determined in the following order of priority:
+X-AnyLabeling 支持从不同的模型中心下载预训练模型。用户可以通过设置环境变量、修改配置文件 `.xanylabelingrc` 或根据软件语言来指定模型下载源。下载源的优先级顺序如下：
 
-1.  **Environment Variable (Highest Priority)**:
-    *   Set the `XANYLABELING_MODEL_HUB` environment variable before launching the application.
-    *   Example (Linux/macOS): `export XANYLABELING_MODEL_HUB=modelscope`
-    *   Example (Windows): `set XANYLABELING_MODEL_HUB=modelscope`
-    *   Setting this to `modelscope` forces downloads from ModelScope (often faster for users in China). Any other value (or if unset) falls back to the next priority level.
+1.  **环境变量 (最高优先级)**: 设置环境变量 `XANYLABELING_MODEL_HUB`。
+    -   例如，在 Linux/macOS 使用 `export XANYLABELING_MODEL_HUB=modelscope`。
+    -   在 Windows 使用 `set XANYLABELING_MODEL_HUB=modelscope`。
+    -   如果此环境变量设置为 `modelscope`，将强制使用 ModelScope，覆盖配置文件的设置。如果设置为其他值或为空，则会考虑配置文件。
 
-2.  **Configuration File (Medium Priority)**:
-    *   Edit the `model_hub:` setting in `.xanylabelingrc`.
-    *   Set it to `modelscope` to use ModelScope, or `github` (default) to use models hosted on GitHub Releases.
-    *   This setting is used only if the `XANYLABELING_MODEL_HUB` environment variable is not set to `modelscope`.
+2.  **配置文件 (中等优先级)**: 打开用户目录下的配置文件 `.xanylabelingrc`。
+    -   找到 `model_hub` 字段。
+    -   可选值为 `github` (默认) 或 `modelscope`。
+    -   如果环境变量 `XANYLABELING_MODEL_HUB` 未设置或为空，则此配置生效。设置为 `model_hub: modelscope` 将优先从 ModelScope 下载模型。
+
     ```yaml
-    # In .xanylabelingrc
-    language: en_US # Or zh_CN
-    model_hub: github  # Options: github, modelscope
-    # ... other settings ...
+    language: en_US
+    model_hub: github  # 可选: github, modelscope
+    ...
     ```
 
-3.  **Language Setting (Lowest Priority)**:
-    *   If neither the environment variable nor the config file is explicitly set to `modelscope`, the default behavior depends on the language setting in `.xanylabelingrc`:
-        *   If `language: zh_CN` (Chinese), it defaults to `modelscope`.
-        *   Otherwise (e.g., `language: en_US`), it defaults to `github`.
-
-## 8. Supported Tasks
-
-X-AnyLabeling supports various annotation tasks. Follow the links below for specific guides and examples for each task type:
-
-### 8.1 Image Classification
-  - Image-level: [Link](../../examples/classification/image-level/README.md)
-  - Object-level (Shape Attributes): [Link](../../examples/classification/shape-level/README.md)
-
-### 8.2 Object Detection
-  - Horizontal Bounding Box (HBB): [Link](../../examples/detection/hbb/README.md)
-  - Oriented Bounding Box (OBB): [Link](../../examples/detection/obb/README.md)
-
-### 8.3 Image Segmentation
-  - Semantic & Instance Segmentation (Polygons): [Link](../../examples/segmentation/README.md)
-
-### 8.4 Pose Estimation
-  - Keypoint Detection: [Link](../../examples/estimation/pose_estimation/README.md)
-
-### 8.5 Multi-Object Tracking
-  - MOT/MOTS: [Link](../../examples/multiple_object_tracking/README.md)
-
-### 8.6 Depth Estimation
-  - Depth Annotation: [Link](../../examples/estimation/depth_estimation/README.md)
-
-### 8.7 Optical Character Recognition (OCR)
-  - Text Detection & Recognition: [Link](../../examples/optical_character_recognition/text_recognition/README.md)
-  - Key Information Extraction (KIE): [Link](../../examples/optical_character_recognition/kie/README.md)
-
-### 8.8 Interactive Video Object Segmentation (IVOS)
-  - SAM2-Video: [Link](../../examples/interactive_video_object_segmentation/sam2/README.md)
-  - SAM3-Video: [Link](../../examples/interactive_video_object_segmentation/sam3/README.md)
+3.  **语言设置 (最低优先级)**:
+    -   如果环境变量和配置文件中的 `model_hub` 都没有明确设置为 `modelscope`（即它们未设置、为空或为 `github`），则软件语言设置为中文 (`language: zh_CN`) 时，会默认尝试从 ModelScope 下载模型。
+    -   在其他情况下（例如，语言为英文，且没有其他设置指定 `modelscope`），将使用默认的 GitHub URL。
 
 
-### 8.9 Matting
-  - Image Matting (Alpha Masks): [Link](../../examples/matting/image_matting/README.md)
+## 8. 任务
 
-### 8.10 Vision-Language Tasks
-  - Florence 2 Examples: [Link](../../examples/vision_language/florence2/README.md)
+### 8.1 图像分类
 
-### 8.11 Zero-Shot Counting
-  - GeCo Counting by Detection/Segmentation: [Link](../../examples/counting/geco/README.md)
+- 图像级分类：[链接](../../examples/classification/image-level/README.md)
+- 对象级分类：[链接](../../examples/classification/shape-level/README.md)
+
+### 8.2 目标检测
+
+- 水平目标检测：[链接](../../examples/detection/hbb/README.md)
+- 旋转目标检测：[链接](../../examples/detection/obb/README.md)
+
+### 8.3 图像分割
+
+- 语义分割 & 实例分割：[链接](../../examples/segmentation/README.md)
+
+### 8.4 姿态估计
+
+- 关键点检测：[链接](../../examples/estimation/pose_estimation/README.md)
+
+### 8.5 多目标跟踪
+
+- 多目标跟踪：[链接](../../examples/multiple_object_tracking/README.md)
+
+### 8.6 深度估计
+
+- 深度估计：[链接](../../examples/estimation/depth_estimation/README.md)
+
+### 8.7 光学字符识别
+
+- 文本检测与识别：[链接](../../examples/optical_character_recognition/text_recognition/README.md)
+- 关键信息提取：[链接](../../examples/optical_character_recognition/kie/README.md)
+
+### 8.8 交互式视频目标分割
+
+- SAM2-Video: [链接](../../examples/interactive_video_object_segmentation/sam2/README.md)
+- SAM3-Video: [链接](../../examples/interactive_video_object_segmentation/sam3/README.md)
+
+### 8.9 抠图
+
+- 图像抠图：[链接](../../examples/matting/image_matting/README.md)
+
+### 8.10 视觉-语言
+
+- Florence 2：[链接](../../examples/vision_language/florence2/README.md)
+
+### 8.11 基于检测与分割的零样本计数
+
+- GeCo：[链接](../../examples/counting/geco/README.md)
 
 ### 8.12 Grounding
-  - YOLOE: [Link](../../examples/grounding/yoloe/README.md)
-  - SAM 3: [Link](../../examples/grounding/sam3/README.md)
 
-## 9. Custom Models
+- YOLOE: [链接](../../examples/grounding/yoloe/README.md)
+- SAM 3: [链接](../../examples/grounding/sam3/README.md)
 
-For details on integrating and using your own custom AI models within X-AnyLabeling for assisted annotation, refer to the [Custom Models](./custom_model.md) guide.
+## 9. 模型
 
-## 10. Advanced Features
+关于如何加载和导出模型可参阅[自定义模型文档](./custom_model.md)。
 
-- Remote Server Guide: [Link](https://github.com/CVHub520/X-AnyLabeling-Server)
-- Chatbot Guide: [Link](../en/chatbot.md)
-- VQA Guide: [Link](../en/vqa.md)
-- Image Classifier: [Link](../en/image_classifier.md)
-- Ultralytics Training Platforms: [Link](../../examples/training/ultralytics/README.md)
+## 10. 高级功能
+
+- 远程推理服务指南：[链接](https://github.com/CVHub520/X-AnyLabeling-Server)
+- 聊天机器人：[链接](../zh_cn/chatbot.md)
+- 视觉问答: [链接](../zh_cn/vqa.md)
+- 图像分类器：[链接](../zh_cn/image_classifier.md)
+- Ultralytics 训练平台：[链接](../../examples/training/ultralytics/README.md)
